@@ -45,6 +45,9 @@
             pictureBox1 = new PictureBox();
             btnSalirB2 = new Button();
             label1 = new Label();
+            NombreCliente = new DataGridViewTextBoxColumn();
+            NitCliente = new DataGridViewTextBoxColumn();
+            VisitasCliente = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewB2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -179,6 +182,7 @@
             // dataGridViewB2
             // 
             dataGridViewB2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewB2.Columns.AddRange(new DataGridViewColumn[] { NombreCliente, NitCliente, VisitasCliente });
             dataGridViewB2.Location = new Point(15, 56);
             dataGridViewB2.Margin = new Padding(3, 2, 3, 2);
             dataGridViewB2.Name = "dataGridViewB2";
@@ -218,6 +222,21 @@
             label1.Size = new Size(133, 18);
             label1.TabIndex = 17;
             label1.Text = "Datos del cliente";
+            // 
+            // NombreCliente
+            // 
+            NombreCliente.HeaderText = "Nombre";
+            NombreCliente.Name = "NombreCliente";
+            // 
+            // NitCliente
+            // 
+            NitCliente.HeaderText = "NIT";
+            NitCliente.Name = "NitCliente";
+            // 
+            // VisitasCliente
+            // 
+            VisitasCliente.HeaderText = "Visitas";
+            VisitasCliente.Name = "VisitasCliente";
             // 
             // FBomba2
             // 
@@ -270,5 +289,8 @@
         private PictureBox pictureBox1;
         private Button btnSalirB2;
         private Label label1;
+        private DataGridViewTextBoxColumn NombreCliente;
+        private DataGridViewTextBoxColumn NitCliente;
+        private DataGridViewTextBoxColumn VisitasCliente;
     }
 }
