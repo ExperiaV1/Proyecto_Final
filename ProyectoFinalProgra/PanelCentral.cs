@@ -17,9 +17,9 @@ namespace ProyectoFinal
         private Estadisticas estadisticas;
         private List<Clientes> clientes;
 
-        private const string rutaArchivo = "abastecimientos.json";
-        private const string rutaPrecio = "precio_dia.json";
-        private const string rutaClientes = "clientes.json";
+        private const string rutaArchivo = @"C:\Gasolinera\abastecimientos.json";
+        private const string rutaPrecio = @"C:\Gasolinera\precio_dia.json";
+        private const string rutaClientes = @"C:\Gasolinera\clientes.json";
 
         private int contadorId;
         private int contadorClienteId;
@@ -193,7 +193,7 @@ namespace ProyectoFinal
         {
             try
             {
-                string json = JsonSerializer.Serialize(clientes);
+                string json = JsonSerializer.Serialize(clientes, OpcionesJson());
                 File.WriteAllText(rutaClientes, json);
             }
             catch (Exception ex)
@@ -250,7 +250,7 @@ namespace ProyectoFinal
         {
             try
             {
-                string json = JsonSerializer.Serialize(abastecimientos);
+                string json = JsonSerializer.Serialize(abastecimientos, OpcionesJson());
                 File.WriteAllText(rutaArchivo, json);
             }
             catch (Exception ex)
@@ -290,7 +290,7 @@ namespace ProyectoFinal
         {
             try
             {
-                string json = JsonSerializer.Serialize(precio);
+                string json = JsonSerializer.Serialize(precio, OpcionesJson());
                 File.WriteAllText(rutaPrecio, json);
             }
             catch (Exception ex)
@@ -318,6 +318,29 @@ namespace ProyectoFinal
             {
                 precio = new PrecioCombustible(10);
             }
+        }
+        private JsonSerializerOptions OpcionesJson()
+        {
+            return new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+        }
+        private String MensajeArduino(AbastecimientoPrepago abastecimiento)
+        {
+            return $"{abastecimiento.BombaId}, {abastecimiento.LitrosSolicitados}";
+        }
+        private void GuardarOrdenArduino(int bombaId, decimal litros)
+        {
+            var orden = new
+            {
+                BombaId = bombaId,
+                Litros = litros,
+                Fecha = DateTime.Now
+            };
+            String json = JsonSerializer.Serialize(orden, OpcionesJson());
+            File.WriteAllText(@"C:\Gasolinera\arduino.json", json);
+
         }
     }
     internal class RespuestaArduino
