@@ -47,7 +47,6 @@ namespace ProyectoFinalProgra
             this.id = id;
             Nombre = nombre;
             this.nit = nit;
-            Telefono = telefono;
             historial = new List<Abastecimiento>();
         }
         public Clientes()
