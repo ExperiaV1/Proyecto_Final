@@ -52,7 +52,7 @@ namespace ProyectoFinal
         // ----Métodos públicos----
 
         // Iniciar abastecimiento prepago
-        public async Task IniciarPrepago(string nombreCliente, string nit, string telefono, int bombaId, decimal monto)
+        public async Task <string> IniciarPrepago(string nombreCliente, string nit, string telefono, int bombaId, decimal monto)
         {
             Bomba bomba = BuscarBomba(bombaId);
             if (bomba == null)
@@ -68,10 +68,13 @@ namespace ProyectoFinal
             abastecimientos.Add(nuevo);
             GuardarAbastecimientos();
             GuardarClientes();
+            GuardarOrdenArduino(bombaId, nuevo.LitrosSolicitados);
+            string enviarMensaje = MensajeArduino(nuevo);
+            return enviarMensaje;
         }
 
         // Iniciar abastecimiento tanque lleno
-        public async Task IniciarTanqueLleno(string nombreCliente, string nit, string telefono, int bombaId)
+        public async Task <String> IniciarTanqueLleno(string nombreCliente, string nit, string telefono, int bombaId)
         {
             Bomba bomba = BuscarBomba(bombaId);
             if (bomba == null)
@@ -87,6 +90,9 @@ namespace ProyectoFinal
             abastecimientos.Add(nuevo);
             GuardarAbastecimientos();
             GuardarClientes();
+            GuardarOrdenArduino(bombaId, 0);
+            string enviarMensaje = $"{bombaId}, LLENO";
+            return enviarMensaje;
         }
         public async Task RecibirRespuestaArduino(string jsonRecibido)
         {
