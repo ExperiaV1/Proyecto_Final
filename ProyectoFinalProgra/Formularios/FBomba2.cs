@@ -63,6 +63,7 @@ namespace ProyectoFinalProgra.Formularios
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         //___Metodo Auxiliar para bloquear y desploquear___
         private void BloquearControles(bool bloquear)
         {
