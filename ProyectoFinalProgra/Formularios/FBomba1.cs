@@ -57,5 +57,11 @@ namespace ProyectoFinalProgra.Formularios
         {
 
         }
+        private void btnGuardarClienteB1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("clientes listos para descpachar");
+        }
+
+        
     }
 }

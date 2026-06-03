@@ -11,17 +11,32 @@ namespace ProyectoFinalProgra
         private SerialPort puerto;
         public Arduino(string nombrePuerto)
         {
-            puerto = new SerialPort(nombrePuerto, 9500);
+            puerto = new SerialPort(nombrePuerto, 9600);
+            puerto.NewLine = "\n";
         }
         public void Enviar(string Mensaje)
         {
-            if (!puerto.IsOpen)
+            try
             {
-                puerto.Open();
-                Thread.Sleep(2000);
+                if (!puerto.IsOpen)
+                {
+                    puerto.Open();
+                    Thread.Sleep(2000);
+                }
+                puerto.WriteLine(Mensaje);
             }
-            puerto.WriteLine(Mensaje);
-            puerto.Close();
+            catch (Exception ex) 
+            {
+                throw new Exception("Error al Enviar datos al arduino " + ex.Message);
+            }  
+        }
+
+        public void Cerrar()
+        {
+            if(puerto.IsOpen)
+            {
+                puerto.Close();
+            }
         }
     }
 }

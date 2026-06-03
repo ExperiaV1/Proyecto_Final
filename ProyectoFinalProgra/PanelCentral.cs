@@ -16,6 +16,7 @@ namespace ProyectoFinal
         private PrecioCombustible precio;
         private Estadisticas estadisticas;
         private List<Clientes> clientes;
+        private Arduino arduino;
 
         private const string rutaArchivo = @"C:\Gasolinera\abastecimientos.json";
         private const string rutaPrecio = @"C:\Gasolinera\precio_dia.json";
@@ -37,6 +38,9 @@ namespace ProyectoFinal
             clientes = new List<Clientes>();
             contadorId = 1;
             contadorClienteId = 1;
+
+
+            arduino = new Arduino("COM7");
 
             for (int i = 1; i <= 4; i++)
                 bombas.Add(new Bomba(i, $"Bomba {i}"));
@@ -62,14 +66,17 @@ namespace ProyectoFinal
 
             Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
 
-            AbastecimientoPrepago nuevo = new AbastecimientoPrepago(contadorId++, cliente.Id, bombaId, monto, precio);
+            AbastecimientoPrepago nuevo = new AbastecimientoPrepago(contadorId++, cliente.Id, bombaId, monto, precio, " ");
 
             cliente.AgregarAbastecimientos(nuevo);
             abastecimientos.Add(nuevo);
+
             GuardarAbastecimientos();
             GuardarClientes();
-            GuardarOrdenArduino(bombaId, nuevo.LitrosSolicitados);
-            string enviarMensaje = MensajeArduino(nuevo);
+
+
+            string enviarMensaje = $"B{bombaId}:Prepago:{nuevo.LitrosSolicitados}";
+            arduino.Enviar(enviarMensaje);
             return enviarMensaje;
         }
 
@@ -90,37 +97,12 @@ namespace ProyectoFinal
             abastecimientos.Add(nuevo);
             GuardarAbastecimientos();
             GuardarClientes();
-            GuardarOrdenArduino(bombaId, 0);
-            string enviarMensaje = $"{bombaId}, LLENO";
+            
+            string enviarMensaje = $"B{bombaId}:LLENO";
+            arduino.Enviar(enviarMensaje);
             return enviarMensaje;
         }
-        public async Task RecibirRespuestaArduino(string jsonRecibido)
-        {
-            try
-            {
-                RespuestaArduino respuesta = JsonSerializer.Deserialize<RespuestaArduino>(jsonRecibido);
-
-                Bomba bomba = BuscarBomba(respuesta.BombaId);
-                if (bomba == null) return;
-
-                bomba.RegistrarLitros(respuesta.LitrosDespachados);
-
-                Abastecimiento actual = BuscarUltimoAbastecimiento(respuesta.BombaId);
-                if (actual != null)
-                {
-                    actual.RegistrarDespacho(respuesta.LitrosDespachados);
-                    GuardarAbastecimientos();
-                }
-                if (respuesta.Estado == "finalizado" || respuesta.Estado == "detenido")
-                {
-                    await bomba.FinalizarSesionAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Error al procesar respuesta Arduino: {ex.Message}");
-            }
-        }
+        
 
         // Actualizar precio del día
         public void ActualizarPrecio(decimal nuevoPrecio)
@@ -306,27 +288,8 @@ namespace ProyectoFinal
                 WriteIndented = true
             };
         }
-        private String MensajeArduino(AbastecimientoPrepago abastecimiento)
-        {
-            return $"{abastecimiento.BombaId}, {abastecimiento.LitrosSolicitados}";
-        }
-        private void GuardarOrdenArduino(int bombaId, decimal litros)
-        {
-            var orden = new
-            {
-                BombaId = bombaId,
-                Litros = litros,
-                Fecha = DateTime.Now
-            };
-            String json = JsonSerializer.Serialize(orden, OpcionesJson());
-            File.WriteAllText(@"C:\Gasolinera\arduino.json", json); 
-
-        }
+      
+        
     }
-    internal class RespuestaArduino
-    {
-        public int BombaId { get; set; }
-        public decimal LitrosDespachados { get; set; }
-        public string Estado { get; set; }
-    }
+    
 }

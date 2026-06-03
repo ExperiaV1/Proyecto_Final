@@ -255,6 +255,11 @@
             PerformLayout();
         }
 
+        private void BtnGuardarClienteB1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private Label label1;
