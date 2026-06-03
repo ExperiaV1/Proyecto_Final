@@ -60,7 +60,7 @@ namespace ProyectoFinal
 
             await bomba.IniciarDespachoAsync();
 
-            Clientes cliente = BuscarOCrearCliente(nombreCliente, nit, telefono);
+            Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
 
             AbastecimientoPrepago nuevo = new AbastecimientoPrepago(contadorId++, cliente.Id, bombaId, monto, precio);
 
@@ -74,7 +74,7 @@ namespace ProyectoFinal
         }
 
         // Iniciar abastecimiento tanque lleno
-        public async Task <String> IniciarTanqueLleno(string nombreCliente, string nit, string telefono, int bombaId)
+        public async Task <String> IniciarTanqueLleno(string nombreCliente, string nit, int bombaId)
         {
             Bomba bomba = BuscarBomba(bombaId);
             if (bomba == null)
@@ -82,7 +82,7 @@ namespace ProyectoFinal
 
             await bomba.IniciarDespachoAsync();
 
-            Clientes cliente = BuscarOCrearCliente(nombreCliente, nit, telefono);
+            Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
 
             AbastecimientoTanqueLleno nuevo = new AbastecimientoTanqueLleno(contadorId++, cliente.Id, bombaId, precio);
 
@@ -319,7 +319,7 @@ namespace ProyectoFinal
                 Fecha = DateTime.Now
             };
             String json = JsonSerializer.Serialize(orden, OpcionesJson());
-            File.WriteAllText(@"C:\Gasolinera\arduino.json", json);
+            File.WriteAllText(@"C:\Gasolinera\arduino.json", json); 
 
         }
     }

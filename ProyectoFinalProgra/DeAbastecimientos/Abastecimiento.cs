@@ -19,6 +19,7 @@ namespace ProyectoFinalProgra.DeAbastecimientos
         private decimal litrosDespachados;
         private DateTime fecha;
         private string estado;
+        private string tipoCombustible;
 
         //----Propiedades Publicas----
         public int Id
@@ -71,6 +72,11 @@ namespace ProyectoFinalProgra.DeAbastecimientos
         {
             get { return estado; }
             set { estado = value; }
+        }
+        public string TipoCombustible
+        {
+            get { return tipoCombustible; }
+            set { tipoCombustible = value; }
         }
         protected Abastecimiento() { }
 

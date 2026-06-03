@@ -95,6 +95,7 @@
             txtNombreB1.Name = "txtNombreB1";
             txtNombreB1.Size = new Size(152, 27);
             txtNombreB1.TabIndex = 4;
+            txtNombreB1.TextChanged += txtNombreB1_TextChanged;
             // 
             // comboTipoGasB1
             // 
@@ -103,6 +104,7 @@
             comboTipoGasB1.Name = "comboTipoGasB1";
             comboTipoGasB1.Size = new Size(151, 28);
             comboTipoGasB1.TabIndex = 5;
+            comboTipoGasB1.SelectedIndexChanged += comboTipoGasB1_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -160,6 +162,7 @@
             txtNitB1.Name = "txtNitB1";
             txtNitB1.Size = new Size(152, 27);
             txtNitB1.TabIndex = 11;
+            txtNitB1.TextChanged += txtNitB1_TextChanged;
             // 
             // comboTipoAbasB1
             // 
@@ -168,6 +171,7 @@
             comboTipoAbasB1.Name = "comboTipoAbasB1";
             comboTipoAbasB1.Size = new Size(151, 28);
             comboTipoAbasB1.TabIndex = 12;
+            comboTipoAbasB1.SelectedIndexChanged += comboTipoAbasB1_SelectedIndexChanged;
             // 
             // txtCantidadAbasB1
             // 
@@ -175,6 +179,7 @@
             txtCantidadAbasB1.Name = "txtCantidadAbasB1";
             txtCantidadAbasB1.Size = new Size(152, 27);
             txtCantidadAbasB1.TabIndex = 13;
+            txtCantidadAbasB1.TextChanged += txtCantidadAbasB1_TextChanged;
             // 
             // btnGuardarClienteB1
             // 
@@ -195,6 +200,7 @@
             btnDespacharB1.TabIndex = 15;
             btnDespacharB1.Text = "Despachar";
             btnDespacharB1.UseVisualStyleBackColor = true;
+            btnDespacharB1.Click += btnDespacharB1_Click;
             // 
             // label7
             // 

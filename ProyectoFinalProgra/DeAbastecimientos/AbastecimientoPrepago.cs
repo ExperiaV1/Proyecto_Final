@@ -10,7 +10,7 @@ namespace ProyectoFinalProgra.DeAbastecimientos
     {
         public decimal LitrosSolicitados { get; set; }
 
-        public AbastecimientoPrepago(int id, int clienteId, int bombaId, decimal cantidadPagada, PrecioCombustible precio)
+        public AbastecimientoPrepago(int id, int clienteId, int bombaId, decimal cantidadPagada, PrecioCombustible precio, string tipoCombustible)
         {
             Id = id;
             ClienteId = clienteId;
@@ -20,6 +20,7 @@ namespace ProyectoFinalProgra.DeAbastecimientos
             CantidadPagada = cantidadPagada;
             LitrosSolicitados = precio.CalcularLitros(CantidadPagada);
             LitrosDespachados = 0;
+            TipoCombustible = tipoCombustible;
         }
         public AbastecimientoPrepago() { }
         public override void RegistrarDespacho(decimal litrosRecibidos)
