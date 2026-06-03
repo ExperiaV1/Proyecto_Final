@@ -12,7 +12,6 @@ namespace ProyectoFinalProgra
         private int id;
         private string nombre;
         private string nit;
-        private string telefono;
         private List<Abastecimiento> historial;
 
         //---Atributos Publicos---
@@ -35,11 +34,6 @@ namespace ProyectoFinalProgra
         {
             get { return nit; }
             set { nit = value; }
-        }
-        public string Telefono
-        {
-            get { return telefono; }
-            set { telefono = value; }
         }
         [JsonIgnore]
         public List<Abastecimiento> Historial
