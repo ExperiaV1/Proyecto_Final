@@ -53,14 +53,50 @@ namespace ProyectoFinalProgra.Formularios
 
         }
 
-        private void btnDespacharB1_Click(object sender, EventArgs e)
+        private async Task btnDespacharB1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtNombreB1.Text))
+                {
+                    MessageBox.Show("Ingresar nombre del cliente.");
+                }
 
+                if (string.IsNullOrWhiteSpace(txtNitB1.Text))
+                {
+                    MessageBox.Show("Ingresar el NIT del cliente.");
+                }
+
+                if (comboTipoAbasB1.Text == "Prepago")
+                {
+                    if (!decimal.TryParse(txtCantidadAbasB1.Text, out decimal monto))
+                    {
+                        MessageBox.Show("Ingrese una cantidad valida ");
+                        return;
+                    }
+                    string Mensaje = await panelCentral.IniciarPrepago(txtNombreB1.Text, txtCantidadAbasB1.Text, "", 1, monto);
+
+                    MessageBox.Show("El despacho del tanque inicio. \nOrden enviada: " + Mensaje);
+                }
+
+                else if (comboTipoAbasB1.Text == "Tanque lleno")
+                {
+                    string Mensaje = await panelCentral.IniciarTanqueLleno(txtNombreB1.Text, txtCantidadAbasB1.Text, 1);
+                    MessageBox.Show("El despacho para llenar el tanque se inicio. \nOrden enviada: " + Mensaje);
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Selecciona un aopcion valida.");
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
         private void btnGuardarClienteB1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("clientes listos para descpachar");
-        }
+        }   
 
         
     }
