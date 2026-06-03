@@ -139,14 +139,14 @@ namespace ProyectoFinal
         public int ObtenerUsosDeBomba(int bombaId) { return estadisticas.UsosDeBomba(bombaId); }
 
         // ----Métodos privados----
-        private Clientes BuscarOCrearCliente(string nombre, string nit, string telefono)
+        private Clientes BuscarOCrearCliente(string nombre, string nit)
         {
             foreach (var c in clientes)
             {
                 if (c.NIT == nit)
                     return c;
             }
-            Clientes nuevo = new Clientes(contadorClienteId++, nombre, nit, telefono);
+            Clientes nuevo = new Clientes(contadorClienteId++, nombre, nit);
             clientes.Add(nuevo);
             return nuevo;
         }

@@ -42,7 +42,7 @@ namespace ProyectoFinalProgra
         }
 
         //---Contructor---
-        public Clientes(int id, string nombre, string nit, string telefono)
+        public Clientes(int id, string nombre, string nit)
         {
             this.id = id;
             Nombre = nombre;
