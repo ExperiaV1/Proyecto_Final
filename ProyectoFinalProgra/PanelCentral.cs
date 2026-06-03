@@ -124,39 +124,13 @@ namespace ProyectoFinal
         }
 
         // Métodos de estadísticas
-        public List<Abastecimiento> ObtenerCierreDiario(DateTime fecha)
-        {
-            return estadisticas.CierreCajaDiario(fecha);
-        }
-
-        public decimal ObtenerTotalDia(DateTime fecha)
-        {
-            return estadisticas.TotalRecaudado(fecha);
-        }
-
-        public List<Abastecimiento> ObtenerInformePrepagos()
-        {
-            return estadisticas.InformePrepagos();
-        }
-
-        public List<Abastecimiento> ObtenerInformeTanqueLleno()
-        {
-            return estadisticas.InformeTanqueLleno();
-        }
-
-        public int ObtenerBombaMasUsada()
-        {
-            return estadisticas.BombaMasUtilizada();
-        }
-
-        public int ObtenerBombaMenosUsada()
-        {
-            return estadisticas.BombaMenosUtilizada();
-        }
-        public int ObtenerUsosDeBomba(int bombaId)
-        {
-            return estadisticas.UsosDeBomba(bombaId);
-        }
+        public List<Abastecimiento> ObtenerCierreDiario(DateTime fecha) { return estadisticas.CierreCajaDiario(fecha); }
+        public decimal ObtenerTotalDia(DateTime fecha) { return estadisticas.TotalRecaudado(fecha); }
+        public List<Abastecimiento> ObtenerInformePrepagos() { return estadisticas.InformePrepagos(); }
+        public List<Abastecimiento> ObtenerInformeTanqueLleno() { return estadisticas.InformeTanqueLleno(); }
+        public int ObtenerBombaMasUsada() { return estadisticas.BombaMasUtilizada(); }
+        public int ObtenerBombaMenosUsada() { return estadisticas.BombaMenosUtilizada(); }
+        public int ObtenerUsosDeBomba(int bombaId) { return estadisticas.UsosDeBomba(bombaId); }
 
         // ----Métodos privados----
         private Clientes BuscarOCrearCliente(string nombre, string nit, string telefono)
