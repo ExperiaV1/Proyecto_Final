@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace ProyectoFinalProgra.Clases
 {
-    internal class Clientes
+    public class Clientes
     {
         //---Atributos Privados---
         private int id;

@@ -60,9 +60,10 @@
             // btnBomba1
             // 
             btnBomba1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBomba1.Location = new Point(136, 223);
+            btnBomba1.Location = new Point(204, 334);
+            btnBomba1.Margin = new Padding(4, 4, 4, 4);
             btnBomba1.Name = "btnBomba1";
-            btnBomba1.Size = new Size(94, 44);
+            btnBomba1.Size = new Size(141, 66);
             btnBomba1.TabIndex = 0;
             btnBomba1.Text = "Usar";
             btnBomba1.UseVisualStyleBackColor = true;
@@ -71,9 +72,10 @@
             // btnBomba2
             // 
             btnBomba2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBomba2.Location = new Point(1108, 225);
+            btnBomba2.Location = new Point(1662, 338);
+            btnBomba2.Margin = new Padding(4, 4, 4, 4);
             btnBomba2.Name = "btnBomba2";
-            btnBomba2.Size = new Size(94, 37);
+            btnBomba2.Size = new Size(141, 56);
             btnBomba2.TabIndex = 1;
             btnBomba2.Text = "Usar";
             btnBomba2.UseVisualStyleBackColor = true;
@@ -82,9 +84,10 @@
             // btnBomba3
             // 
             btnBomba3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBomba3.Location = new Point(125, 516);
+            btnBomba3.Location = new Point(188, 774);
+            btnBomba3.Margin = new Padding(4, 4, 4, 4);
             btnBomba3.Name = "btnBomba3";
-            btnBomba3.Size = new Size(105, 43);
+            btnBomba3.Size = new Size(158, 64);
             btnBomba3.TabIndex = 2;
             btnBomba3.Text = "Usar";
             btnBomba3.UseVisualStyleBackColor = true;
@@ -93,9 +96,10 @@
             // btnBomba4
             // 
             btnBomba4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBomba4.Location = new Point(1108, 516);
+            btnBomba4.Location = new Point(1662, 774);
+            btnBomba4.Margin = new Padding(4, 4, 4, 4);
             btnBomba4.Name = "btnBomba4";
-            btnBomba4.Size = new Size(108, 43);
+            btnBomba4.Size = new Size(162, 64);
             btnBomba4.TabIndex = 3;
             btnBomba4.Text = "Usar";
             btnBomba4.UseVisualStyleBackColor = true;
@@ -104,9 +108,10 @@
             // btnEstadistica
             // 
             btnEstadistica.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEstadistica.Location = new Point(639, 214);
+            btnEstadistica.Location = new Point(958, 321);
+            btnEstadistica.Margin = new Padding(4, 4, 4, 4);
             btnEstadistica.Name = "btnEstadistica";
-            btnEstadistica.Size = new Size(137, 44);
+            btnEstadistica.Size = new Size(206, 66);
             btnEstadistica.TabIndex = 4;
             btnEstadistica.Text = "Estadísticas";
             btnEstadistica.UseVisualStyleBackColor = true;
@@ -115,9 +120,10 @@
             // btnPrecioGas
             // 
             btnPrecioGas.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPrecioGas.Location = new Point(656, 297);
+            btnPrecioGas.Location = new Point(984, 446);
+            btnPrecioGas.Margin = new Padding(4, 4, 4, 4);
             btnPrecioGas.Name = "btnPrecioGas";
-            btnPrecioGas.Size = new Size(106, 55);
+            btnPrecioGas.Size = new Size(159, 82);
             btnPrecioGas.TabIndex = 5;
             btnPrecioGas.Text = "Precios Gasolina";
             btnPrecioGas.UseVisualStyleBackColor = true;
@@ -126,9 +132,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.bomba_1;
-            pictureBox1.Location = new Point(90, 31);
+            pictureBox1.Location = new Point(135, 46);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(173, 177);
+            pictureBox1.Size = new Size(260, 266);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -137,18 +144,20 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Gill Sans Ultra Bold", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(558, 11);
+            label1.Location = new Point(837, 16);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(318, 31);
+            label1.Size = new Size(457, 46);
             label1.TabIndex = 7;
             label1.Text = "Gasolinera Don Bosco";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.bomba_2;
-            pictureBox2.Location = new Point(1067, 31);
+            pictureBox2.Location = new Point(1600, 46);
+            pictureBox2.Margin = new Padding(4, 4, 4, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(173, 177);
+            pictureBox2.Size = new Size(260, 266);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -156,9 +165,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.bomba_3;
-            pictureBox3.Location = new Point(90, 320);
+            pictureBox3.Location = new Point(135, 480);
+            pictureBox3.Margin = new Padding(4, 4, 4, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(173, 177);
+            pictureBox3.Size = new Size(260, 266);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 9;
             pictureBox3.TabStop = false;
@@ -166,9 +176,10 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.bomba_4;
-            pictureBox4.Location = new Point(1067, 320);
+            pictureBox4.Location = new Point(1600, 480);
+            pictureBox4.Margin = new Padding(4, 4, 4, 4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(173, 177);
+            pictureBox4.Size = new Size(260, 266);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 10;
             pictureBox4.TabStop = false;
@@ -177,9 +188,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(138, 7);
+            label3.Location = new Point(207, 10);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(92, 20);
+            label3.Size = new Size(128, 30);
             label3.TabIndex = 12;
             label3.Text = "Bomba 1";
             // 
@@ -187,9 +199,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1110, 7);
+            label2.Location = new Point(1665, 10);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 20);
+            label2.Size = new Size(128, 30);
             label2.TabIndex = 13;
             label2.Text = "Bomba 2";
             // 
@@ -197,9 +210,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(138, 297);
+            label4.Location = new Point(207, 446);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(92, 20);
+            label4.Size = new Size(128, 30);
             label4.TabIndex = 14;
             label4.Text = "Bomba 3";
             // 
@@ -207,9 +221,10 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(1110, 297);
+            label5.Location = new Point(1665, 446);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(92, 20);
+            label5.Size = new Size(128, 30);
             label5.TabIndex = 15;
             label5.Text = "Bomba 4";
             // 
@@ -217,9 +232,10 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(286, 31);
+            label6.Location = new Point(429, 46);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(71, 20);
+            label6.Size = new Size(100, 30);
             label6.TabIndex = 16;
             label6.Text = "Estado";
             // 
@@ -227,9 +243,10 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(1257, 31);
+            label7.Location = new Point(1886, 46);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(71, 20);
+            label7.Size = new Size(100, 30);
             label7.TabIndex = 17;
             label7.Text = "Estado";
             // 
@@ -237,9 +254,10 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(286, 320);
+            label8.Location = new Point(429, 480);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(71, 20);
+            label8.Size = new Size(100, 30);
             label8.TabIndex = 18;
             label8.Text = "Estado";
             // 
@@ -247,9 +265,10 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(1257, 320);
+            label9.Location = new Point(1886, 480);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(71, 20);
+            label9.Size = new Size(100, 30);
             label9.TabIndex = 19;
             label9.Text = "Estado";
             // 
@@ -257,9 +276,10 @@
             // 
             lblBomba1.AutoSize = true;
             lblBomba1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBomba1.Location = new Point(286, 72);
+            lblBomba1.Location = new Point(429, 108);
+            lblBomba1.Margin = new Padding(4, 0, 4, 0);
             lblBomba1.Name = "lblBomba1";
-            lblBomba1.Size = new Size(80, 20);
+            lblBomba1.Size = new Size(112, 30);
             lblBomba1.TabIndex = 20;
             lblBomba1.Text = "label10";
             // 
@@ -267,9 +287,10 @@
             // 
             lblBomba2.AutoSize = true;
             lblBomba2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBomba2.Location = new Point(1257, 72);
+            lblBomba2.Location = new Point(1886, 108);
+            lblBomba2.Margin = new Padding(4, 0, 4, 0);
             lblBomba2.Name = "lblBomba2";
-            lblBomba2.Size = new Size(80, 20);
+            lblBomba2.Size = new Size(112, 30);
             lblBomba2.TabIndex = 21;
             lblBomba2.Text = "label11";
             // 
@@ -277,9 +298,10 @@
             // 
             lblBomba3.AutoSize = true;
             lblBomba3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBomba3.Location = new Point(286, 362);
+            lblBomba3.Location = new Point(429, 543);
+            lblBomba3.Margin = new Padding(4, 0, 4, 0);
             lblBomba3.Name = "lblBomba3";
-            lblBomba3.Size = new Size(80, 20);
+            lblBomba3.Size = new Size(112, 30);
             lblBomba3.TabIndex = 22;
             lblBomba3.Text = "label12";
             // 
@@ -287,18 +309,19 @@
             // 
             lblBomba4.AutoSize = true;
             lblBomba4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBomba4.Location = new Point(1257, 362);
+            lblBomba4.Location = new Point(1886, 543);
+            lblBomba4.Margin = new Padding(4, 0, 4, 0);
             lblBomba4.Name = "lblBomba4";
-            lblBomba4.Size = new Size(80, 20);
+            lblBomba4.Size = new Size(112, 30);
             lblBomba4.TabIndex = 23;
             lblBomba4.Text = "label13";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1370, 559);
+            ClientSize = new Size(2075, 866);
             Controls.Add(lblBomba4);
             Controls.Add(lblBomba3);
             Controls.Add(lblBomba2);
@@ -322,6 +345,7 @@
             Controls.Add(btnBomba3);
             Controls.Add(btnBomba2);
             Controls.Add(btnBomba1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

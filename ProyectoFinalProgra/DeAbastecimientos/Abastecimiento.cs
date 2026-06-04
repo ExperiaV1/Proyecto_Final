@@ -9,7 +9,7 @@ namespace ProyectoFinalProgra.DeAbastecimientos
 {
     [JsonDerivedType(typeof(AbastecimientoPrepago), typeDiscriminator: "prepago")]
     [JsonDerivedType(typeof(AbastecimientoTanqueLleno), typeDiscriminator: "tanqueLleno")]
-    internal abstract class Abastecimiento
+    public abstract class Abastecimiento
     {
         //----Atributos Privados----
         private int id;

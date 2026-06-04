@@ -42,9 +42,6 @@
             comboTipoGasB2 = new ComboBox();
             txtNombreB2 = new TextBox();
             dataGridViewB2 = new DataGridView();
-            NombreCliente = new DataGridViewTextBoxColumn();
-            NitCliente = new DataGridViewTextBoxColumn();
-            VisitasCliente = new DataGridViewTextBoxColumn();
             pictureBox1 = new PictureBox();
             btnSalirB2 = new Button();
             label1 = new Label();
@@ -189,34 +186,13 @@
             // dataGridViewB2
             // 
             dataGridViewB2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewB2.Columns.AddRange(new DataGridViewColumn[] { NombreCliente, NitCliente, VisitasCliente });
             dataGridViewB2.Location = new Point(26, 112);
             dataGridViewB2.Margin = new Padding(5, 4, 5, 4);
             dataGridViewB2.Name = "dataGridViewB2";
             dataGridViewB2.RowHeadersWidth = 51;
             dataGridViewB2.Size = new Size(583, 562);
             dataGridViewB2.TabIndex = 20;
-            // 
-            // NombreCliente
-            // 
-            NombreCliente.HeaderText = "Nombre";
-            NombreCliente.MinimumWidth = 9;
-            NombreCliente.Name = "NombreCliente";
-            NombreCliente.Width = 175;
-            // 
-            // NitCliente
-            // 
-            NitCliente.HeaderText = "NIT";
-            NitCliente.MinimumWidth = 9;
-            NitCliente.Name = "NitCliente";
-            NitCliente.Width = 175;
-            // 
-            // VisitasCliente
-            // 
-            VisitasCliente.HeaderText = "Visitas";
-            VisitasCliente.MinimumWidth = 9;
-            VisitasCliente.Name = "VisitasCliente";
-            VisitasCliente.Width = 175;
+            dataGridViewB2.CellClick += dataGridViewB2_CellClick;
             // 
             // pictureBox1
             // 
@@ -303,8 +279,5 @@
         private PictureBox pictureBox1;
         private Button btnSalirB2;
         private Label label1;
-        private DataGridViewTextBoxColumn NombreCliente;
-        private DataGridViewTextBoxColumn NitCliente;
-        private DataGridViewTextBoxColumn VisitasCliente;
     }
 }

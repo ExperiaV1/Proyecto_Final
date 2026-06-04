@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProyectoFinal;
+using ProyectoFinalProgra.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +12,21 @@ namespace ProyectoFinalProgra.Formularios
 {
     public partial class FBomba4 : Form
     {
+        private PanelCentral panelCentral;
+        private BindingList<Clientes> listaClientes = new BindingList<Clientes>();
+        private string rutaClientes;
+        private int contadorClientes = 1;
         public FBomba4()
         {
             InitializeComponent();
+            panelCentral = new PanelCentral();
+            rutaClientes = Path.Combine(Application.StartupPath, "clientes_bomba1.txt");
+
+            Configurar_DataGridView();
+            //CargarClientes_DesdeTxt();
+            Listados.CargarClientes_DesdeTxt(rutaClientes, listaClientes, contadorClientes);
+
+            dataGridViewB4.CellClick += dataGridViewB4_CellClick;
         }
 
         private void btnSalirB4_Click(object sender, EventArgs e)
@@ -71,6 +85,60 @@ namespace ProyectoFinalProgra.Formularios
             comboTipoGasB4.Enabled = !bloquear;
             comboTipoAbasB4.Enabled = !bloquear;
             txtCantidadAbasB4.ReadOnly = bloquear;
+        }
+
+        //FUNCION PARA CONGIGURAR LA DATAGRIDVIEW Y MUESTRE LOS DATOS DEL CLIENTE QUE SE NECESITAN 
+        private void Configurar_DataGridView()
+        {
+            dataGridViewB4.AutoGenerateColumns = false;
+            dataGridViewB4.Columns.Clear();
+
+            dataGridViewB4.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Nombre",
+                DataPropertyName = "Nombre",
+                Name = "Nombre",
+                Width = 180
+            });
+
+            dataGridViewB4.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "NIT",
+                DataPropertyName = "NIT",
+                Name = "NIT",
+                Width = 130
+            });
+
+            dataGridViewB4.DataSource = listaClientes;
+            dataGridViewB4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewB4.MultiSelect = false;
+            dataGridViewB4.ReadOnly = true;
+        }
+
+        //FUNCION PARA SELECCIONAR CLIENTE DE LA DATAGRIDVIEW
+        private void Seleccionar_Cliente(int rowIndex)
+        {
+            if (rowIndex >= 0)
+            {
+                Clientes cliente = dataGridViewB4.Rows[rowIndex].DataBoundItem as Clientes;
+
+                if (cliente != null)
+                {
+                    txtNombreB4.Text = cliente.Nombre;
+                    txtNitB4.Text = cliente.NIT;
+                }
+            }
+        }
+
+        private void FBomba4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //EVENTO DE LA DATAGRIDVIEW
+        private void dataGridViewB4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Seleccionar_Cliente(e.RowIndex);
         }
     }
 }
