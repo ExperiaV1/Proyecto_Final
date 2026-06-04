@@ -73,5 +73,10 @@ namespace ProyectoFinalProgra.Formularios
             comboTipoAbasB2.Enabled = !bloquear;
             txtCantidadAbasB2.ReadOnly = bloquear;
         }
+
+        private void btnDespacharB2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

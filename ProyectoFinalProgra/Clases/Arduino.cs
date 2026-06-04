@@ -4,7 +4,7 @@ using System.IO.Ports;
 using System.Text;
 
 
-namespace ProyectoFinalProgra
+namespace ProyectoFinalProgra.Clases
 {
     internal class Arduino
     {

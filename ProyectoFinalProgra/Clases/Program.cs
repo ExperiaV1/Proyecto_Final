@@ -1,4 +1,4 @@
-namespace ProyectoFinalProgra
+namespace ProyectoFinalProgra.Clases
 {
     internal static class Program
     {

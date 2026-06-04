@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProyectoFinalProgra
+namespace ProyectoFinalProgra.Clases
 {
     internal class PrecioCombustible
     {

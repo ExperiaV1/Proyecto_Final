@@ -1,4 +1,4 @@
-﻿using ProyectoFinalProgra;
+﻿using ProyectoFinalProgra.Clases;
 using ProyectoFinalProgra.DeAbastecimientos;
 using System;
 using System.Collections.Generic;

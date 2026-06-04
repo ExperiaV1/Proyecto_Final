@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
 
-namespace ProyectoFinalProgra
+namespace ProyectoFinalProgra.Clases
 {
     internal class Clientes
     {
