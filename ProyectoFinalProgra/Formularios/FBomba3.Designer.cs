@@ -70,6 +70,7 @@
             btnDespacharB3.TabIndex = 49;
             btnDespacharB3.Text = "Despachar";
             btnDespacharB3.UseVisualStyleBackColor = true;
+            btnDespacharB3.Click += btnDespacharB3_Click;
             // 
             // btnGuardarClienteB3
             // 

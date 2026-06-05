@@ -1,11 +1,8 @@
 ﻿using ProyectoFinal;
 using ProyectoFinalProgra.Clases;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ProyectoFinalProgra.Formularios
@@ -13,22 +10,29 @@ namespace ProyectoFinalProgra.Formularios
     public partial class FBomba2 : Form
     {
         private PanelCentral panelCentral;
+        private Form1 formPrincipal;
         private BindingList<Clientes> listaClientes = new BindingList<Clientes>();
         private string rutaClientes;
         private int contadorClientes = 1;
 
-        public FBomba2()
+        public FBomba2() : this(new PanelCentral(), null)
+        {
+        }
+
+        internal FBomba2(PanelCentral panelCompartido, Form1 formPrincipal)
         {
             InitializeComponent();
-            panelCentral = new PanelCentral();
-            rutaClientes = Path.Combine(Application.StartupPath, "clientes_bomba1.txt");
+            panelCentral = panelCompartido;
+            this.formPrincipal = formPrincipal;
+            rutaClientes = Path.Combine(Application.StartupPath, "clientes_bomba2.txt");
 
+            ConfigurarCombos();
             Configurar_DataGridView();
-            //CargarClientes_DesdeTxt();
             Listados.CargarClientes_DesdeTxt(rutaClientes, listaClientes, contadorClientes);
-
             dataGridViewB2.CellClick += dataGridViewB2_CellClick;
 
+            btnDespacharB2.Click -= btnDespacharB2_Click;
+            btnDespacharB2.Click += btnDespacharB2_Click;
         }
 
         private void btnSalirB2_Click(object sender, EventArgs e)
@@ -90,9 +94,97 @@ namespace ProyectoFinalProgra.Formularios
             txtCantidadAbasB2.ReadOnly = bloquear;
         }
 
-        private void btnDespacharB2_Click(object sender, EventArgs e)
+        private async void btnDespacharB2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!ValidarDatosBase(txtNombreB2.Text, txtNitB2.Text, comboTipoGasB2.Text, comboTipoAbasB2.Text))
+                    return;
 
+                btnDespacharB2.Enabled = false;
+
+                if (comboTipoAbasB2.Text == "Prepago")
+                {
+                    if (!decimal.TryParse(txtCantidadAbasB2.Text, out decimal cantidad) || cantidad <= 0)
+                    {
+                        MessageBox.Show("Ingrese una cantidad valida mayor a 0.");
+                        return;
+                    }
+
+                    string mensaje = await panelCentral.IniciarPrepago(
+                        txtNombreB2.Text.Trim(),
+                        txtNitB2.Text.Trim(),
+                        comboTipoGasB2.Text,
+                        2,
+                        cantidad
+                    );
+
+                    MessageBox.Show("Bomba 2 finalizada.\nOrden enviada: " + mensaje);
+                }
+                else if (comboTipoAbasB2.Text.Equals("Tanque lleno", StringComparison.OrdinalIgnoreCase) || comboTipoAbasB2.Text.Equals("Tanque Lleno", StringComparison.OrdinalIgnoreCase))
+                {
+                    string mensaje = await panelCentral.IniciarTanqueLleno(
+                        txtNombreB2.Text.Trim(),
+                        txtNitB2.Text.Trim(),
+                        2,
+                        comboTipoGasB2.Text
+                    );
+
+                    MessageBox.Show("Bomba 2 finalizada en modo tanque lleno.\nOrden enviada: " + mensaje);
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una opcion valida.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                btnDespacharB2.Enabled = true;
+            }
+        }
+
+        private void ConfigurarCombos()
+        {
+            comboTipoGasB2.Items.Clear();
+            comboTipoGasB2.Items.AddRange(new object[] { "Super", "Regular", "Diesel" });
+            comboTipoGasB2.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            comboTipoAbasB2.Items.Clear();
+            comboTipoAbasB2.Items.AddRange(new object[] { "Prepago", "Tanque lleno" });
+            comboTipoAbasB2.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private bool ValidarDatosBase(string nombre, string nit, string tipoGas, string tipoAbas)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                MessageBox.Show("Ingresar nombre del cliente.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(nit))
+            {
+                MessageBox.Show("Ingresar el NIT del cliente.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(tipoGas))
+            {
+                MessageBox.Show("Selecciona el tipo de combustible.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(tipoAbas))
+            {
+                MessageBox.Show("Selecciona el tipo de abastecimiento.");
+                return false;
+            }
+
+            return true;
         }
 
         //FUNCION PARA CONGIGURAR LA DATAGRIDVIEW Y MUESTRE LOS DATOS DEL CLIENTE QUE SE NECESITAN 
@@ -122,7 +214,7 @@ namespace ProyectoFinalProgra.Formularios
             dataGridViewB2.MultiSelect = false;
             dataGridViewB2.ReadOnly = true;
         }
-        
+
         //FUNCION PARA SELECCIONAR CLIENTE DE LA DATAGRIDVIEW
         private void Seleccionar_Cliente(int rowIndex)
         {
@@ -142,6 +234,11 @@ namespace ProyectoFinalProgra.Formularios
         private void dataGridViewB2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Seleccionar_Cliente(e.RowIndex);
+        }
+
+        private void FBomba2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

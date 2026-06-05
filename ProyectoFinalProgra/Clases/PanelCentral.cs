@@ -33,14 +33,16 @@ namespace ProyectoFinal
         // ----Constructor----
         public PanelCentral()
         {
+            Directory.CreateDirectory(@"C:\Gasolinera");
+
             abastecimientos = new List<Abastecimiento>();
             bombas = new List<Bomba>();
             clientes = new List<Clientes>();
             contadorId = 1;
             contadorClienteId = 1;
 
-
-            arduino = new Arduino("COM7");
+            // CAMBIA COM7 SI TU ARDUINO MEGA ESTA EN OTRO PUERTO
+            arduino = new Arduino("COM4");
 
             for (int i = 1; i <= 4; i++)
                 bombas.Add(new Bomba(i, $"Bomba {i}"));
@@ -53,10 +55,64 @@ namespace ProyectoFinal
             estadisticas = new Estadisticas(abastecimientos, clientes);
         }
 
-        // ----Métodos públicos----
 
-        // Iniciar abastecimiento prepago
-        public async Task <string> IniciarPrepago(string nombreCliente, string nit, string telefono, int bombaId, decimal monto)
+        // PREPAGO: por ahora monto/cantidad = segundos maximos de activacion.
+        // Si el sensor HW-038 detecta agua antes, Arduino devuelve los segundos reales
+        // y se guardan esos segundos en la base de datos.
+        public async Task<string> IniciarPrepago(string nombreCliente, string nit, string tipoGas, int bombaId, decimal monto)
+        {
+            Bomba bomba = BuscarBomba(bombaId);
+            if (bomba == null)
+                throw new Exception($"No existe la bomba {bombaId}.");
+
+            if (monto <= 0)
+                throw new Exception("La cantidad debe ser mayor a 0.");
+
+            int segundosSolicitados = (int)Math.Round(monto, MidpointRounding.AwayFromZero);
+            if (segundosSolicitados <= 0) segundosSolicitados = 1;
+
+            await bomba.IniciarDespachoAsync();
+
+            string enviarMensaje = $"B{bombaId}:{segundosSolicitados}";
+
+            try
+            {
+                Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
+
+                int timeoutMs = (segundosSolicitados + 15) * 1000;
+                DespachoResultado resultado = await Task.Run(() => arduino.EnviarYEsperarFin(enviarMensaje, timeoutMs));
+
+                decimal segundosReales = resultado.SegundosDespachados;
+
+                AbastecimientoPrepago nuevo = new AbastecimientoPrepago(
+                    contadorId++,
+                    cliente.Id,
+                    bombaId,
+                    monto,
+                    precio,
+                    tipoGas
+                );
+
+                nuevo.RegistrarDespacho(segundosReales);
+
+                cliente.AgregarAbastecimientos(nuevo);
+                abastecimientos.Add(nuevo);
+
+                GuardarAbastecimientos();
+                GuardarClientes();
+
+                string detalleParo = resultado.ParoPorSensor ? "SENSOR_AGUA" : "TIEMPO_COMPLETO";
+                return $"{enviarMensaje} | Despachado real: {segundosReales} seg | Paro: {detalleParo}";
+            }
+            finally
+            {
+                await bomba.ReiniciarBombaAsync();
+            }
+        }
+
+        // TANQUE LLENO: ahora se manda Bx:FULL y Arduino se detiene cuando el HW-038 detecta agua
+        // o cuando llega al limite de seguridad definido en el Arduino.
+        public async Task<string> IniciarTanqueLleno(string nombreCliente, string nit, int bombaId, string tipoGas = "")
         {
             Bomba bomba = BuscarBomba(bombaId);
             if (bomba == null)
@@ -64,47 +120,60 @@ namespace ProyectoFinal
 
             await bomba.IniciarDespachoAsync();
 
-            Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
+            string enviarMensaje = $"B{bombaId}:FULL";
 
-            AbastecimientoPrepago nuevo = new AbastecimientoPrepago(contadorId++, cliente.Id, bombaId, monto, precio, " ");
+            try
+            {
+                Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
 
-            cliente.AgregarAbastecimientos(nuevo);
-            abastecimientos.Add(nuevo);
+                // Debe ser mayor que TIEMPO_MAX_TANQUE_LLENO_SEG del Arduino.
+                int timeoutMs = 140000;
+                DespachoResultado resultado = await Task.Run(() => arduino.EnviarYEsperarFin(enviarMensaje, timeoutMs));
 
-            GuardarAbastecimientos();
-            GuardarClientes();
+                decimal segundosReales = resultado.SegundosDespachados;
 
+                AbastecimientoTanqueLleno nuevo = new AbastecimientoTanqueLleno(
+                    contadorId++,
+                    cliente.Id,
+                    bombaId,
+                    precio,
+                    tipoGas
+                );
 
-            string enviarMensaje = $"B{bombaId}:Prepago:{nuevo.LitrosSolicitados}";
-            arduino.Enviar(enviarMensaje);
-            return enviarMensaje;
+                nuevo.RegistrarDespacho(segundosReales);
+
+                cliente.AgregarAbastecimientos(nuevo);
+                abastecimientos.Add(nuevo);
+
+                GuardarAbastecimientos();
+                GuardarClientes();
+
+                string detalleParo = resultado.ParoPorSensor ? "SENSOR_AGUA" : "LIMITE_SEGURIDAD";
+                return $"{enviarMensaje} | Despachado real: {segundosReales} seg | Paro: {detalleParo}";
+            }
+            finally
+            {
+                await bomba.ReiniciarBombaAsync();
+            }
         }
 
-        // Iniciar abastecimiento tanque lleno
-        public async Task <String> IniciarTanqueLleno(string nombreCliente, string nit, int bombaId)
+        public void LiberarBomba(int bombaId)
         {
             Bomba bomba = BuscarBomba(bombaId);
-            if (bomba == null)
-                throw new Exception($"No existe la bomba {bombaId}.");
-
-            await bomba.IniciarDespachoAsync();
-
-            Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
-
-            AbastecimientoTanqueLleno nuevo = new AbastecimientoTanqueLleno(contadorId++, cliente.Id, bombaId, precio);
-
-            cliente.AgregarAbastecimientos(nuevo);
-            abastecimientos.Add(nuevo);
-            GuardarAbastecimientos();
-            GuardarClientes();
-            
-            string enviarMensaje = $"B{bombaId}:LLENO";
-            arduino.Enviar(enviarMensaje);
-            return enviarMensaje;
+            if (bomba != null)
+            {
+                bomba.Liberar();
+            }   
         }
-        
 
-        // Actualizar precio del día
+        public void CerrarArduino()
+        {
+            if (arduino != null)
+            {
+                arduino.Cerrar();
+            }
+        }
+
         public void ActualizarPrecio(decimal nuevoPrecio)
         {
             precio = new PrecioCombustible(nuevoPrecio);
@@ -120,7 +189,6 @@ namespace ProyectoFinal
         public int ObtenerBombaMenosUsada() { return estadisticas.BombaMenosUtilizada(); }
         public int ObtenerUsosDeBomba(int bombaId) { return estadisticas.UsosDeBomba(bombaId); }
 
-        // ----Métodos privados----
         private Clientes BuscarOCrearCliente(string nombre, string nit)
         {
             foreach (var c in clientes)
@@ -128,10 +196,12 @@ namespace ProyectoFinal
                 if (c.NIT == nit)
                     return c;
             }
+
             Clientes nuevo = new Clientes(contadorClienteId++, nombre, nit);
             clientes.Add(nuevo);
             return nuevo;
         }
+
         private Clientes BuscarClientePorId(int id)
         {
             foreach (var c in clientes)
@@ -140,6 +210,7 @@ namespace ProyectoFinal
             }
             return null;
         }
+
         private void VincularHistorialClientes()
         {
             foreach (var a in abastecimientos)
@@ -151,6 +222,7 @@ namespace ProyectoFinal
                 }
             }
         }
+
         private void GuardarClientes()
         {
             try
@@ -163,6 +235,7 @@ namespace ProyectoFinal
                 throw new Exception($"Error al guardar clientes: {ex.Message}");
             }
         }
+
         private void CargarClientes()
         {
             try
@@ -187,7 +260,7 @@ namespace ProyectoFinal
                 throw new Exception($"Error al cargar clientes: {ex.Message}");
             }
         }
-        // Busca una bomba por ID
+
         private Bomba BuscarBomba(int id)
         {
             foreach (var b in bombas)
@@ -198,16 +271,6 @@ namespace ProyectoFinal
             return null;
         }
 
-        private Abastecimiento BuscarUltimoAbastecimiento(int bombaId)
-        {
-            Abastecimiento ultimo = null;
-            foreach (var a in abastecimientos)
-            {
-                if (a.BombaId == bombaId && a.Estado == "pendiente")
-                    ultimo = a;
-            }
-            return ultimo;
-        }
         private void GuardarAbastecimientos()
         {
             try
@@ -247,7 +310,6 @@ namespace ProyectoFinal
             }
         }
 
-        // Guarda el precio del día en archivo JSON
         private void GuardarPrecio()
         {
             try
@@ -261,7 +323,6 @@ namespace ProyectoFinal
             }
         }
 
-        // Carga el precio del día desde archivo JSON
         private void CargarPrecio()
         {
             try
@@ -276,11 +337,12 @@ namespace ProyectoFinal
                     precio = new PrecioCombustible(10);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 precio = new PrecioCombustible(10);
             }
         }
+
         private JsonSerializerOptions OpcionesJson()
         {
             return new JsonSerializerOptions
@@ -288,8 +350,8 @@ namespace ProyectoFinal
                 WriteIndented = true
             };
         }
-      
-        
+
+
     }
     
 }

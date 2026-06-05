@@ -13,20 +13,29 @@ namespace ProyectoFinalProgra.Formularios
     public partial class FBomba4 : Form
     {
         private PanelCentral panelCentral;
+        private Form1 formPrincipal;
         private BindingList<Clientes> listaClientes = new BindingList<Clientes>();
         private string rutaClientes;
         private int contadorClientes = 1;
-        public FBomba4()
+
+        public FBomba4() : this(new PanelCentral(), null)
+        {
+        }
+
+        internal FBomba4(PanelCentral panelCompartido, Form1 formPrincipal)
         {
             InitializeComponent();
-            panelCentral = new PanelCentral();
-            rutaClientes = Path.Combine(Application.StartupPath, "clientes_bomba1.txt");
+            panelCentral = panelCompartido;
+            this.formPrincipal = formPrincipal;
+            rutaClientes = Path.Combine(Application.StartupPath, "clientes_bomba4.txt");
 
+            ConfigurarCombos();
             Configurar_DataGridView();
-            //CargarClientes_DesdeTxt();
             Listados.CargarClientes_DesdeTxt(rutaClientes, listaClientes, contadorClientes);
-
             dataGridViewB4.CellClick += dataGridViewB4_CellClick;
+
+            btnDespacharB4.Click -= btnDespacharB4_Click;
+            btnDespacharB4.Click += btnDespacharB4_Click;
         }
 
         private void btnSalirB4_Click(object sender, EventArgs e)
@@ -140,5 +149,99 @@ namespace ProyectoFinalProgra.Formularios
         {
             Seleccionar_Cliente(e.RowIndex);
         }
+
+        private async void btnDespacharB4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!ValidarDatosBase(txtNombreB4.Text, txtNitB4.Text, comboTipoGasB4.Text, comboTipoAbasB4.Text))
+                    return;
+
+                btnDespacharB4.Enabled = false;
+
+                if (comboTipoAbasB4.Text == "Prepago")
+                {
+                    if (!decimal.TryParse(txtCantidadAbasB4.Text, out decimal cantidad) || cantidad <= 0)
+                    {
+                        MessageBox.Show("Ingrese una cantidad valida mayor a 0.");
+                        return;
+                    }
+
+                    string mensaje = await panelCentral.IniciarPrepago(
+                        txtNombreB4.Text.Trim(),
+                        txtNitB4.Text.Trim(),
+                        comboTipoGasB4.Text,
+                        4,
+                        cantidad
+                    );
+
+                    MessageBox.Show("Bomba 4 finalizada.\nOrden enviada: " + mensaje);
+                }
+                else if (comboTipoAbasB4.Text.Equals("Tanque lleno", StringComparison.OrdinalIgnoreCase) || comboTipoAbasB4.Text.Equals("Tanque Lleno", StringComparison.OrdinalIgnoreCase))
+                {
+                    string mensaje = await panelCentral.IniciarTanqueLleno(
+                        txtNombreB4.Text.Trim(),
+                        txtNitB4.Text.Trim(),
+                        4,
+                        comboTipoGasB4.Text
+                    );
+
+                    MessageBox.Show("Bomba 4 finalizada en modo tanque lleno.\nOrden enviada: " + mensaje);
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una opcion valida.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                btnDespacharB4.Enabled = true;
+            }
+        }
+
+        private void ConfigurarCombos()
+        {
+            comboTipoGasB4.Items.Clear();
+            comboTipoGasB4.Items.AddRange(new object[] { "Super", "Regular", "Diesel" });
+            comboTipoGasB4.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            comboTipoAbasB4.Items.Clear();
+            comboTipoAbasB4.Items.AddRange(new object[] { "Prepago", "Tanque lleno" });
+            comboTipoAbasB4.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private bool ValidarDatosBase(string nombre, string nit, string tipoGas, string tipoAbas)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                MessageBox.Show("Ingresar nombre del cliente.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(nit))
+            {
+                MessageBox.Show("Ingresar el NIT del cliente.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(tipoGas))
+            {
+                MessageBox.Show("Selecciona el tipo de combustible.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(tipoAbas))
+            {
+                MessageBox.Show("Selecciona el tipo de abastecimiento.");
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

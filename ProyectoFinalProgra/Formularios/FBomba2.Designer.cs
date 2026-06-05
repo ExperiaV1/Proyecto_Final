@@ -254,6 +254,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "FBomba2";
             Text = "FBomba2";
+            Load += FBomba2_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewB2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

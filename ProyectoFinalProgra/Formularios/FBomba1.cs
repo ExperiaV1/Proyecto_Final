@@ -15,110 +15,80 @@ namespace ProyectoFinalProgra.Formularios
     public partial class FBomba1 : Form
     {
         private PanelCentral panelCentral;
+        private Form1 formPrincipal;
         private BindingList<Clientes> listaClientes = new BindingList<Clientes>();
         private string rutaClientes;
         private int contadorClientes = 1;
 
-        public FBomba1()
+        public FBomba1() : this(new PanelCentral(), null)
+        {
+        }
+
+        internal FBomba1(PanelCentral panelCompartido, Form1 formPrincipal)
         {
             InitializeComponent();
-            panelCentral = new PanelCentral();
+            panelCentral = panelCompartido;
+            this.formPrincipal = formPrincipal;
             rutaClientes = Path.Combine(Application.StartupPath, "clientes_bomba1.txt");
 
+            ConfigurarCombos();
             Configurar_DataGridView();
-            //CargarClientes_DesdeTxt();
-            Listados.CargarClientes_DesdeTxt(rutaClientes,listaClientes, contadorClientes);
-
+            Listados.CargarClientes_DesdeTxt(rutaClientes, listaClientes, contadorClientes);
             dataGridViewB1.CellClick += dataGridViewB1_CellClick;
         }
 
         private void btnSalirB1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form1 formForm1 = new Form1();
-            formForm1.Show();
-        }
 
-        private void txtNombreB1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNitB1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboTipoGasB1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboTipoAbasB1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCantidadAbasB1_TextChanged(object sender, EventArgs e)
-        {
-
+            if (formPrincipal != null)
+            {
+                formPrincipal.Show();
+            }
+            else
+            {
+                Form1 formForm1 = new Form1();
+                formForm1.Show();
+            }
         }
 
         private async void btnDespacharB1_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtNombreB1.Text))
-                {
-                    MessageBox.Show("Ingresar nombre del cliente.");
+                if (!ValidarDatosBase(txtNombreB1.Text, txtNitB1.Text, comboTipoGasB1.Text, comboTipoAbasB1.Text))
                     return;
-                }
 
-                if (string.IsNullOrWhiteSpace(txtNitB1.Text))
-                {
-                    MessageBox.Show("Ingresar el NIT del cliente.");
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(comboTipoGasB1.Text))
-                {
-                    MessageBox.Show("Selecciona el tipo de combustible.");
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(comboTipoAbasB1.Text))
-                {
-                    MessageBox.Show("Selecciona el tipo de abastecimiento.");
-                    return;
-                }
+                btnDespacharB1.Enabled = false;
 
                 if (comboTipoAbasB1.Text == "Prepago")
                 {
-                    if (!decimal.TryParse(txtCantidadAbasB1.Text, out decimal monto))
+                    if (!decimal.TryParse(txtCantidadAbasB1.Text, out decimal cantidad) || cantidad <= 0)
                     {
-                        MessageBox.Show("Ingrese una cantidad valida.");
+                        MessageBox.Show("Ingrese una cantidad valida mayor a 0.");
                         return;
                     }
 
-                    string Mensaje = await panelCentral.IniciarPrepago(
-                        txtNombreB1.Text,
-                        txtCantidadAbasB1.Text,
+                    string mensaje = await panelCentral.IniciarPrepago(
+                        txtNombreB1.Text.Trim(),
+                        txtNitB1.Text.Trim(),
                         comboTipoGasB1.Text,
                         1,
-                        monto
+                        cantidad
                     );
 
-                    MessageBox.Show("El despacho del tanque inicio.\nOrden enviada: " + Mensaje);
+                    MessageBox.Show("Bomba 1 finalizada.\nOrden enviada: " + mensaje);
                 }
-                else if (comboTipoAbasB1.Text == "Tanque lleno")
+                else if (comboTipoAbasB1.Text.Equals("Tanque lleno", StringComparison.OrdinalIgnoreCase) || comboTipoAbasB1.Text.Equals("Tanque Lleno", StringComparison.OrdinalIgnoreCase))
                 {
-                    string Mensaje = await panelCentral.IniciarTanqueLleno(
-                        txtNombreB1.Text,
-                        comboTipoGasB1.Text,
-                        1
+                    string mensaje = await panelCentral.IniciarTanqueLleno(
+                        txtNombreB1.Text.Trim(),
+                        txtNitB1.Text.Trim(),
+                        1,
+                        comboTipoGasB1.Text
                     );
 
-                    MessageBox.Show("El despacho para llenar el tanque se inicio.\nOrden enviada: " + Mensaje);
+                    MessageBox.Show("Bomba 1 finalizada en modo tanque lleno.\nOrden enviada: " + mensaje);
                 }
                 else
                 {
@@ -129,6 +99,51 @@ namespace ProyectoFinalProgra.Formularios
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+            finally
+            {
+                btnDespacharB1.Enabled = true;
+            }
+        }
+
+
+        private void ConfigurarCombos()
+        {
+            comboTipoGasB1.Items.Clear();
+            comboTipoGasB1.Items.AddRange(new object[] { "Super", "Regular", "Diesel" });
+            comboTipoGasB1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            comboTipoAbasB1.Items.Clear();
+            comboTipoAbasB1.Items.AddRange(new object[] { "Prepago", "Tanque lleno" });
+            comboTipoAbasB1.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private bool ValidarDatosBase(string nombre, string nit, string tipoGas, string tipoAbas)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                MessageBox.Show("Ingresar nombre del cliente.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(nit))
+            {
+                MessageBox.Show("Ingresar el NIT del cliente.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(tipoGas))
+            {
+                MessageBox.Show("Selecciona el tipo de combustible.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(tipoAbas))
+            {
+                MessageBox.Show("Selecciona el tipo de abastecimiento.");
+                return false;
+            }
+
+            return true;
         }
 
         private void btnGuardarClienteB1_Click(object sender, EventArgs e)
@@ -270,7 +285,12 @@ namespace ProyectoFinalProgra.Formularios
         {
             Seleccionar_Cliente(e.RowIndex);
         }
+        private void FBomba1_Load(object sender, EventArgs e) { }
+        private void txtNombreB1_TextChanged(object sender, EventArgs e) { }
+        private void txtNitB1_TextChanged(object sender, EventArgs e) { }
+        private void comboTipoGasB1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void comboTipoAbasB1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void txtCantidadAbasB1_TextChanged(object sender, EventArgs e) { }
 
-       
     }
 }

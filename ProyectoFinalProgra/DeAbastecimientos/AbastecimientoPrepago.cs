@@ -1,8 +1,5 @@
 ﻿using ProyectoFinalProgra.Clases;
-using ProyectoFinalProgra.DeAbastecimientos;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProyectoFinalProgra.DeAbastecimientos
 {
@@ -17,22 +14,32 @@ namespace ProyectoFinalProgra.DeAbastecimientos
             BombaId = bombaId;
             Fecha = DateTime.Now;
             Estado = "pendiente";
+
+            // En esta version de pruebas, 1 unidad ingresada = 1 segundo de bomba.
+            // Por eso usamos cantidadPagada como segundos solicitados.
             CantidadPagada = cantidadPagada;
-            LitrosSolicitados = precio.CalcularLitros(CantidadPagada);
+            LitrosSolicitados = cantidadPagada;
             LitrosDespachados = 0;
             TipoCombustible = tipoCombustible;
         }
+
         public AbastecimientoPrepago() { }
+
         public override void RegistrarDespacho(decimal litrosRecibidos)
         {
+            // Por ahora este valor representa segundos reales despachados.
             LitrosDespachados = litrosRecibidos;
+
+            // Si el sensor paro antes, la base de datos guarda lo realmente despachado,
+            // no lo que el usuario habia elegido.
+            CantidadPagada = LitrosDespachados;
+
             ActualizarEstado();
-            if (Estado == "incompleto")
-                CantidadPagada = LitrosDespachados * (CantidadPagada / LitrosSolicitados);
         }
+
         public override void ActualizarEstado()
         {
-            Estado = LitrosDespachados >= LitrosSolicitados ? "completo" : "incompleto";
+            Estado = LitrosDespachados >= LitrosSolicitados ? "completo" : "incompleto_sensor";
         }
     }
 }
