@@ -63,22 +63,6 @@ namespace ProyectoFinalProgra
             Listados.CargarClientes_DesdeTxt(rutaClientesB4, listaClientesB4, contadorClientesB4);
             dataGridViewB4.CellClick += dataGridViewB4_CellContentClick;
         }
-
-
-        private void btnEstadistica_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FEstadisticas formFEstadisticas = new FEstadisticas();
-            formFEstadisticas.Show();
-        }
-
-        private void btnPrecioGas_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FPrecioGas formFPrecioGas = new FPrecioGas();
-            formFPrecioGas.Show();
-        }
-
         private void panCentral_Paint(object sender, PaintEventArgs e)
         {
 
