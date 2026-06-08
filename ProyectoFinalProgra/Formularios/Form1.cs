@@ -64,30 +64,6 @@ namespace ProyectoFinalProgra
             dataGridViewB4.CellClick += dataGridViewB4_CellContentClick;
         }
 
-        private void btnBomba1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            
-            
-        }
-
-        private void btnBomba2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            
-        }
-
-        private void btnBomba3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            
-        }
-
-        private void btnBomba4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            
-        }
 
         private void btnEstadistica_Click(object sender, EventArgs e)
         {
