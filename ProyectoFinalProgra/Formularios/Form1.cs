@@ -67,29 +67,26 @@ namespace ProyectoFinalProgra
         private void btnBomba1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FBomba1 formFBomba1 = new FBomba1();
-            formFBomba1.Show();
+            
+            
         }
 
         private void btnBomba2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FBomba2 formFBomba2 = new FBomba2();
-            formFBomba2.Show();
+            
         }
 
         private void btnBomba3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FBomba3 formFBomba3 = new FBomba3();
-            formFBomba3.Show();
+            
         }
 
         private void btnBomba4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FBomba4 formFBomba4 = new FBomba4();
-            formFBomba4.Show();
+            
         }
 
         private void btnEstadistica_Click(object sender, EventArgs e)
