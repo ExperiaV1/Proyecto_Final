@@ -68,10 +68,7 @@ namespace ProyectoFinalProgra
 
         }
 
-        private void btnDetener4_Click(object sender, EventArgs e)
-        {
 
-        }
 
         // ---- CONFIGURACION DE EVENTO PARA LOS BOTONER USAR PARA IR A LAS BOMBAS ----
         private void btnBomba1_Click_1(object sender, EventArgs e)
@@ -253,6 +250,11 @@ namespace ProyectoFinalProgra
         private void comboTipoAbasB1_SelectedIndexChanged(object sender, EventArgs e) { }
         private void txtCantidadAbasB1_TextChanged(object sender, EventArgs e) { }
 
+        private void btnDetener1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // ====== LOGICA BOMBA 2 ======
         private void ConfigurarCombosB2()
         {
@@ -310,7 +312,6 @@ namespace ProyectoFinalProgra
                     return;
                 }
 
-                // CORRECCIÓN: Se usa contadorClientesB2 y listaClientesB2
                 Clientes cliente = new Clientes(contadorClientesB2, nombre, nit);
                 listaClientesB2.Add(cliente);
                 contadorClientesB2++;
@@ -373,6 +374,10 @@ namespace ProyectoFinalProgra
                     txtNitB2.Text = cliente.NIT;
                 }
             }
+        }
+        private void btnDetener2_Click(object sender, EventArgs e)
+        {
+
         }
 
         // ====== LOGICA BOMBA 3 =======
@@ -494,6 +499,10 @@ namespace ProyectoFinalProgra
                 }
             }
         }
+        private void btnDetener3_Click(object sender, EventArgs e)
+        {
+
+        }
 
         // ====== LOGICA BOMBA 4 ======
         private void ConfigurarCombosB4()
@@ -613,6 +622,10 @@ namespace ProyectoFinalProgra
                     txtNitB4.Text = cliente.NIT;
                 }
             }
+        }
+        private void btnDetener4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

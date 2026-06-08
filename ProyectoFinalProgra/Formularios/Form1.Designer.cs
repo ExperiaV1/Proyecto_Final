@@ -121,6 +121,8 @@
             comboTipoGasB3 = new ComboBox();
             txtNombreB3 = new TextBox();
             dataGridViewB3 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             pictureBox7 = new PictureBox();
             btnSalirB3 = new Button();
             label30 = new Label();
@@ -143,13 +145,11 @@
             comboTipoGasB4 = new ComboBox();
             txtNombreB4 = new TextBox();
             dataGridViewB4 = new DataGridView();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             pictureBox8 = new PictureBox();
             btnSalirB4 = new Button();
             label37 = new Label();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
             TabModelBombas.SuspendLayout();
             tabPage1.SuspendLayout();
             panCentral.SuspendLayout();
@@ -185,7 +185,7 @@
             TabModelBombas.Location = new Point(5, 7);
             TabModelBombas.Name = "TabModelBombas";
             TabModelBombas.SelectedIndex = 0;
-            TabModelBombas.Size = new Size(1099, 488);
+            TabModelBombas.Size = new Size(1183, 535);
             TabModelBombas.TabIndex = 0;
             // 
             // tabPage1
@@ -194,7 +194,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1091, 460);
+            tabPage1.Size = new Size(1175, 507);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Central";
             tabPage1.UseVisualStyleBackColor = true;
@@ -496,7 +496,7 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1091, 460);
+            tabPage2.Size = new Size(1175, 507);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Bomba 1";
             tabPage2.UseVisualStyleBackColor = true;
@@ -526,12 +526,12 @@
             panFbomba1.Controls.Add(label16);
             panFbomba1.Location = new Point(6, 3);
             panFbomba1.Name = "panFbomba1";
-            panFbomba1.Size = new Size(1085, 460);
+            panFbomba1.Size = new Size(1163, 498);
             panFbomba1.TabIndex = 18;
             // 
             // txtCantidadVolB1
             // 
-            txtCantidadVolB1.Location = new Point(507, 271);
+            txtCantidadVolB1.Location = new Point(664, 285);
             txtCantidadVolB1.Margin = new Padding(3, 2, 3, 2);
             txtCantidadVolB1.Name = "txtCantidadVolB1";
             txtCantidadVolB1.Size = new Size(134, 23);
@@ -541,7 +541,7 @@
             // 
             label41.AutoSize = true;
             label41.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label41.Location = new Point(236, 271);
+            label41.Location = new Point(393, 285);
             label41.Name = "label41";
             label41.Size = new Size(192, 18);
             label41.TabIndex = 53;
@@ -550,13 +550,14 @@
             // btnDetener1
             // 
             btnDetener1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetener1.Location = new Point(907, 307);
+            btnDetener1.Location = new Point(1011, 311);
             btnDetener1.Margin = new Padding(2);
             btnDetener1.Name = "btnDetener1";
             btnDetener1.Size = new Size(112, 34);
             btnDetener1.TabIndex = 17;
             btnDetener1.Text = "Detener";
             btnDetener1.UseVisualStyleBackColor = true;
+            btnDetener1.Click += btnDetener1_Click;
             // 
             // label10
             // 
@@ -572,7 +573,7 @@
             // btnDespacharB1
             // 
             btnDespacharB1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDespacharB1.Location = new Point(775, 307);
+            btnDespacharB1.Location = new Point(879, 311);
             btnDespacharB1.Margin = new Padding(2);
             btnDespacharB1.Name = "btnDespacharB1";
             btnDespacharB1.Size = new Size(112, 34);
@@ -584,7 +585,7 @@
             // btnGuardarClienteB1
             // 
             btnGuardarClienteB1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGuardarClienteB1.Location = new Point(369, 334);
+            btnGuardarClienteB1.Location = new Point(526, 348);
             btnGuardarClienteB1.Margin = new Padding(2);
             btnGuardarClienteB1.Name = "btnGuardarClienteB1";
             btnGuardarClienteB1.Size = new Size(93, 29);
@@ -595,7 +596,7 @@
             // 
             // txtCantidadAbasB1
             // 
-            txtCantidadAbasB1.Location = new Point(510, 223);
+            txtCantidadAbasB1.Location = new Point(667, 237);
             txtCantidadAbasB1.Margin = new Padding(2);
             txtCantidadAbasB1.Name = "txtCantidadAbasB1";
             txtCantidadAbasB1.Size = new Size(135, 23);
@@ -605,7 +606,7 @@
             // 
             comboTipoAbasB1.FormattingEnabled = true;
             comboTipoAbasB1.Items.AddRange(new object[] { "Prepago", "Tanque lleno" });
-            comboTipoAbasB1.Location = new Point(510, 179);
+            comboTipoAbasB1.Location = new Point(667, 193);
             comboTipoAbasB1.Margin = new Padding(2);
             comboTipoAbasB1.Name = "comboTipoAbasB1";
             comboTipoAbasB1.Size = new Size(132, 23);
@@ -613,7 +614,7 @@
             // 
             // txtNitB1
             // 
-            txtNitB1.Location = new Point(509, 94);
+            txtNitB1.Location = new Point(666, 108);
             txtNitB1.Margin = new Padding(2);
             txtNitB1.Name = "txtNitB1";
             txtNitB1.Size = new Size(135, 23);
@@ -623,7 +624,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(241, 223);
+            label11.Location = new Point(398, 237);
             label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
             label11.Size = new Size(224, 18);
@@ -634,7 +635,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(241, 181);
+            label12.Location = new Point(398, 195);
             label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
             label12.Size = new Size(187, 18);
@@ -645,7 +646,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(241, 137);
+            label13.Location = new Point(398, 151);
             label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
             label13.Size = new Size(164, 18);
@@ -656,7 +657,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label14.Location = new Point(241, 99);
+            label14.Location = new Point(398, 113);
             label14.Margin = new Padding(2, 0, 2, 0);
             label14.Name = "label14";
             label14.Size = new Size(36, 18);
@@ -667,7 +668,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.Location = new Point(241, 49);
+            label15.Location = new Point(398, 63);
             label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
             label15.Size = new Size(73, 18);
@@ -678,7 +679,7 @@
             // 
             comboTipoGasB1.FormattingEnabled = true;
             comboTipoGasB1.Items.AddRange(new object[] { "Super", "Regular", "Dicel" });
-            comboTipoGasB1.Location = new Point(509, 137);
+            comboTipoGasB1.Location = new Point(666, 151);
             comboTipoGasB1.Margin = new Padding(2);
             comboTipoGasB1.Name = "comboTipoGasB1";
             comboTipoGasB1.Size = new Size(132, 23);
@@ -686,7 +687,7 @@
             // 
             // txtNombreB1
             // 
-            txtNombreB1.Location = new Point(510, 49);
+            txtNombreB1.Location = new Point(667, 63);
             txtNombreB1.Margin = new Padding(2);
             txtNombreB1.Name = "txtNombreB1";
             txtNombreB1.Size = new Size(135, 23);
@@ -700,7 +701,7 @@
             dataGridViewB1.Margin = new Padding(2);
             dataGridViewB1.Name = "dataGridViewB1";
             dataGridViewB1.RowHeadersWidth = 51;
-            dataGridViewB1.Size = new Size(206, 281);
+            dataGridViewB1.Size = new Size(255, 281);
             dataGridViewB1.TabIndex = 3;
             dataGridViewB1.CellContentClick += dataGridViewB1_CellContentClick;
             // 
@@ -717,7 +718,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.bomba_1;
-            pictureBox5.Location = new Point(750, 22);
+            pictureBox5.Location = new Point(854, 26);
             pictureBox5.Margin = new Padding(2);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(293, 281);
@@ -728,7 +729,7 @@
             // btnSalirB1
             // 
             btnSalirB1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalirB1.Location = new Point(477, 334);
+            btnSalirB1.Location = new Point(634, 348);
             btnSalirB1.Margin = new Padding(2);
             btnSalirB1.Name = "btnSalirB1";
             btnSalirB1.Size = new Size(96, 29);
@@ -754,7 +755,7 @@
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1091, 460);
+            tabPage3.Size = new Size(1175, 507);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Bomba 2";
             tabPage3.UseVisualStyleBackColor = true;
@@ -784,12 +785,12 @@
             panFbomba2.Controls.Add(label23);
             panFbomba2.Location = new Point(3, 3);
             panFbomba2.Name = "panFbomba2";
-            panFbomba2.Size = new Size(1087, 460);
+            panFbomba2.Size = new Size(1166, 498);
             panFbomba2.TabIndex = 35;
             // 
             // txtCantidadVolB2
             // 
-            txtCantidadVolB2.Location = new Point(499, 264);
+            txtCantidadVolB2.Location = new Point(654, 264);
             txtCantidadVolB2.Margin = new Padding(3, 2, 3, 2);
             txtCantidadVolB2.Name = "txtCantidadVolB2";
             txtCantidadVolB2.Size = new Size(134, 23);
@@ -799,7 +800,7 @@
             // 
             label40.AutoSize = true;
             label40.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label40.Location = new Point(231, 266);
+            label40.Location = new Point(386, 266);
             label40.Name = "label40";
             label40.Size = new Size(192, 18);
             label40.TabIndex = 53;
@@ -808,13 +809,14 @@
             // btnDetener2
             // 
             btnDetener2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetener2.Location = new Point(893, 304);
+            btnDetener2.Location = new Point(993, 304);
             btnDetener2.Margin = new Padding(3, 2, 3, 2);
             btnDetener2.Name = "btnDetener2";
             btnDetener2.Size = new Size(112, 34);
             btnDetener2.TabIndex = 34;
             btnDetener2.Text = "Detener";
             btnDetener2.UseVisualStyleBackColor = true;
+            btnDetener2.Click += btnDetener2_Click;
             // 
             // label17
             // 
@@ -829,7 +831,7 @@
             // btnDespacharB2
             // 
             btnDespacharB2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDespacharB2.Location = new Point(775, 304);
+            btnDespacharB2.Location = new Point(875, 304);
             btnDespacharB2.Margin = new Padding(3, 2, 3, 2);
             btnDespacharB2.Name = "btnDespacharB2";
             btnDespacharB2.Size = new Size(112, 34);
@@ -841,7 +843,7 @@
             // btnGuardarClienteB2
             // 
             btnGuardarClienteB2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGuardarClienteB2.Location = new Point(362, 304);
+            btnGuardarClienteB2.Location = new Point(517, 304);
             btnGuardarClienteB2.Margin = new Padding(3, 2, 3, 2);
             btnGuardarClienteB2.Name = "btnGuardarClienteB2";
             btnGuardarClienteB2.Size = new Size(93, 29);
@@ -852,7 +854,7 @@
             // 
             // txtCantidadAbasB2
             // 
-            txtCantidadAbasB2.Location = new Point(501, 217);
+            txtCantidadAbasB2.Location = new Point(656, 217);
             txtCantidadAbasB2.Margin = new Padding(3, 2, 3, 2);
             txtCantidadAbasB2.Name = "txtCantidadAbasB2";
             txtCantidadAbasB2.Size = new Size(134, 23);
@@ -862,7 +864,7 @@
             // 
             comboTipoAbasB2.FormattingEnabled = true;
             comboTipoAbasB2.Items.AddRange(new object[] { "Prepago", "Tanque Lleno" });
-            comboTipoAbasB2.Location = new Point(501, 173);
+            comboTipoAbasB2.Location = new Point(656, 173);
             comboTipoAbasB2.Margin = new Padding(3, 2, 3, 2);
             comboTipoAbasB2.Name = "comboTipoAbasB2";
             comboTipoAbasB2.Size = new Size(133, 23);
@@ -870,7 +872,7 @@
             // 
             // txtNitB2
             // 
-            txtNitB2.Location = new Point(500, 88);
+            txtNitB2.Location = new Point(655, 88);
             txtNitB2.Margin = new Padding(3, 2, 3, 2);
             txtNitB2.Name = "txtNitB2";
             txtNitB2.Size = new Size(134, 23);
@@ -880,7 +882,7 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label18.Location = new Point(231, 217);
+            label18.Location = new Point(386, 217);
             label18.Name = "label18";
             label18.Size = new Size(224, 18);
             label18.TabIndex = 27;
@@ -890,7 +892,7 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.Location = new Point(231, 176);
+            label19.Location = new Point(386, 176);
             label19.Name = "label19";
             label19.Size = new Size(187, 18);
             label19.TabIndex = 26;
@@ -900,7 +902,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label20.Location = new Point(231, 132);
+            label20.Location = new Point(386, 132);
             label20.Name = "label20";
             label20.Size = new Size(164, 18);
             label20.TabIndex = 25;
@@ -910,7 +912,7 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(231, 93);
+            label21.Location = new Point(386, 93);
             label21.Name = "label21";
             label21.Size = new Size(36, 18);
             label21.TabIndex = 24;
@@ -920,7 +922,7 @@
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label22.Location = new Point(231, 43);
+            label22.Location = new Point(386, 43);
             label22.Name = "label22";
             label22.Size = new Size(73, 18);
             label22.TabIndex = 23;
@@ -930,7 +932,7 @@
             // 
             comboTipoGasB2.FormattingEnabled = true;
             comboTipoGasB2.Items.AddRange(new object[] { "Super", "Regular", "Diesel" });
-            comboTipoGasB2.Location = new Point(500, 132);
+            comboTipoGasB2.Location = new Point(655, 132);
             comboTipoGasB2.Margin = new Padding(3, 2, 3, 2);
             comboTipoGasB2.Name = "comboTipoGasB2";
             comboTipoGasB2.Size = new Size(133, 23);
@@ -938,7 +940,7 @@
             // 
             // txtNombreB2
             // 
-            txtNombreB2.Location = new Point(499, 43);
+            txtNombreB2.Location = new Point(654, 43);
             txtNombreB2.Margin = new Padding(3, 2, 3, 2);
             txtNombreB2.Name = "txtNombreB2";
             txtNombreB2.Size = new Size(134, 23);
@@ -952,7 +954,7 @@
             dataGridViewB2.Margin = new Padding(3, 2, 3, 2);
             dataGridViewB2.Name = "dataGridViewB2";
             dataGridViewB2.RowHeadersWidth = 51;
-            dataGridViewB2.Size = new Size(206, 281);
+            dataGridViewB2.Size = new Size(255, 281);
             dataGridViewB2.TabIndex = 20;
             dataGridViewB2.CellContentClick += dataGridViewB2_CellContentClick;
             // 
@@ -969,7 +971,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.bomba_2;
-            pictureBox6.Location = new Point(749, 15);
+            pictureBox6.Location = new Point(849, 15);
             pictureBox6.Margin = new Padding(3, 2, 3, 2);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(293, 281);
@@ -980,7 +982,7 @@
             // btnSalirB2
             // 
             btnSalirB2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalirB2.Location = new Point(469, 304);
+            btnSalirB2.Location = new Point(624, 304);
             btnSalirB2.Margin = new Padding(3, 2, 3, 2);
             btnSalirB2.Name = "btnSalirB2";
             btnSalirB2.Size = new Size(96, 29);
@@ -1005,7 +1007,7 @@
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1091, 460);
+            tabPage4.Size = new Size(1175, 507);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Bomba 3";
             tabPage4.UseVisualStyleBackColor = true;
@@ -1035,12 +1037,12 @@
             panFbomba3.Controls.Add(label30);
             panFbomba3.Location = new Point(3, 3);
             panFbomba3.Name = "panFbomba3";
-            panFbomba3.Size = new Size(1085, 460);
+            panFbomba3.Size = new Size(1172, 504);
             panFbomba3.TabIndex = 52;
             // 
             // txtCantidadVolB3
             // 
-            txtCantidadVolB3.Location = new Point(516, 260);
+            txtCantidadVolB3.Location = new Point(663, 260);
             txtCantidadVolB3.Margin = new Padding(3, 2, 3, 2);
             txtCantidadVolB3.Name = "txtCantidadVolB3";
             txtCantidadVolB3.Size = new Size(134, 23);
@@ -1050,7 +1052,7 @@
             // 
             label39.AutoSize = true;
             label39.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label39.Location = new Point(248, 260);
+            label39.Location = new Point(395, 260);
             label39.Name = "label39";
             label39.Size = new Size(192, 18);
             label39.TabIndex = 53;
@@ -1060,13 +1062,14 @@
             // 
             btnDetener3.AutoEllipsis = true;
             btnDetener3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetener3.Location = new Point(892, 313);
+            btnDetener3.Location = new Point(997, 313);
             btnDetener3.Margin = new Padding(3, 2, 3, 2);
             btnDetener3.Name = "btnDetener3";
             btnDetener3.Size = new Size(112, 34);
             btnDetener3.TabIndex = 51;
             btnDetener3.Text = "Detener";
             btnDetener3.UseVisualStyleBackColor = true;
+            btnDetener3.Click += btnDetener3_Click;
             // 
             // label24
             // 
@@ -1081,7 +1084,7 @@
             // btnDespacharB3
             // 
             btnDespacharB3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDespacharB3.Location = new Point(774, 313);
+            btnDespacharB3.Location = new Point(879, 313);
             btnDespacharB3.Margin = new Padding(3, 2, 3, 2);
             btnDespacharB3.Name = "btnDespacharB3";
             btnDespacharB3.Size = new Size(112, 34);
@@ -1093,7 +1096,7 @@
             // btnGuardarClienteB3
             // 
             btnGuardarClienteB3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGuardarClienteB3.Location = new Point(390, 318);
+            btnGuardarClienteB3.Location = new Point(537, 318);
             btnGuardarClienteB3.Margin = new Padding(3, 2, 3, 2);
             btnGuardarClienteB3.Name = "btnGuardarClienteB3";
             btnGuardarClienteB3.Size = new Size(93, 29);
@@ -1104,7 +1107,7 @@
             // 
             // txtCantidadAbasB3
             // 
-            txtCantidadAbasB3.Location = new Point(518, 221);
+            txtCantidadAbasB3.Location = new Point(665, 221);
             txtCantidadAbasB3.Margin = new Padding(3, 2, 3, 2);
             txtCantidadAbasB3.Name = "txtCantidadAbasB3";
             txtCantidadAbasB3.Size = new Size(134, 23);
@@ -1114,7 +1117,7 @@
             // 
             comboTipoAbasB3.FormattingEnabled = true;
             comboTipoAbasB3.Items.AddRange(new object[] { "Prepago", "Tanque Lleno" });
-            comboTipoAbasB3.Location = new Point(518, 177);
+            comboTipoAbasB3.Location = new Point(665, 177);
             comboTipoAbasB3.Margin = new Padding(3, 2, 3, 2);
             comboTipoAbasB3.Name = "comboTipoAbasB3";
             comboTipoAbasB3.Size = new Size(133, 23);
@@ -1122,7 +1125,7 @@
             // 
             // txtNitB3
             // 
-            txtNitB3.Location = new Point(517, 92);
+            txtNitB3.Location = new Point(664, 92);
             txtNitB3.Margin = new Padding(3, 2, 3, 2);
             txtNitB3.Name = "txtNitB3";
             txtNitB3.Size = new Size(134, 23);
@@ -1132,7 +1135,7 @@
             // 
             label25.AutoSize = true;
             label25.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label25.Location = new Point(248, 221);
+            label25.Location = new Point(395, 221);
             label25.Name = "label25";
             label25.Size = new Size(224, 18);
             label25.TabIndex = 44;
@@ -1142,7 +1145,7 @@
             // 
             label26.AutoSize = true;
             label26.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label26.Location = new Point(248, 180);
+            label26.Location = new Point(395, 180);
             label26.Name = "label26";
             label26.Size = new Size(187, 18);
             label26.TabIndex = 43;
@@ -1152,7 +1155,7 @@
             // 
             label27.AutoSize = true;
             label27.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label27.Location = new Point(248, 136);
+            label27.Location = new Point(395, 136);
             label27.Name = "label27";
             label27.Size = new Size(164, 18);
             label27.TabIndex = 42;
@@ -1162,7 +1165,7 @@
             // 
             label28.AutoSize = true;
             label28.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label28.Location = new Point(248, 97);
+            label28.Location = new Point(395, 97);
             label28.Name = "label28";
             label28.Size = new Size(36, 18);
             label28.TabIndex = 41;
@@ -1172,7 +1175,7 @@
             // 
             label29.AutoSize = true;
             label29.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label29.Location = new Point(248, 47);
+            label29.Location = new Point(395, 47);
             label29.Name = "label29";
             label29.Size = new Size(73, 18);
             label29.TabIndex = 40;
@@ -1182,7 +1185,7 @@
             // 
             comboTipoGasB3.FormattingEnabled = true;
             comboTipoGasB3.Items.AddRange(new object[] { "Super", "Regular", "Diesel" });
-            comboTipoGasB3.Location = new Point(517, 136);
+            comboTipoGasB3.Location = new Point(664, 136);
             comboTipoGasB3.Margin = new Padding(3, 2, 3, 2);
             comboTipoGasB3.Name = "comboTipoGasB3";
             comboTipoGasB3.Size = new Size(133, 23);
@@ -1190,7 +1193,7 @@
             // 
             // txtNombreB3
             // 
-            txtNombreB3.Location = new Point(516, 47);
+            txtNombreB3.Location = new Point(663, 47);
             txtNombreB3.Margin = new Padding(3, 2, 3, 2);
             txtNombreB3.Name = "txtNombreB3";
             txtNombreB3.Size = new Size(134, 23);
@@ -1204,14 +1207,24 @@
             dataGridViewB3.Margin = new Padding(3, 2, 3, 2);
             dataGridViewB3.Name = "dataGridViewB3";
             dataGridViewB3.RowHeadersWidth = 51;
-            dataGridViewB3.Size = new Size(206, 281);
+            dataGridViewB3.Size = new Size(255, 281);
             dataGridViewB3.TabIndex = 37;
             dataGridViewB3.CellContentClick += dataGridViewB3_CellContentClick;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Nombre";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "NIT";
+            Column2.Name = "Column2";
             // 
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources.bomba_3;
-            pictureBox7.Location = new Point(750, 19);
+            pictureBox7.Location = new Point(855, 19);
             pictureBox7.Margin = new Padding(3, 2, 3, 2);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(293, 281);
@@ -1222,7 +1235,7 @@
             // btnSalirB3
             // 
             btnSalirB3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalirB3.Location = new Point(497, 318);
+            btnSalirB3.Location = new Point(644, 318);
             btnSalirB3.Margin = new Padding(3, 2, 3, 2);
             btnSalirB3.Name = "btnSalirB3";
             btnSalirB3.Size = new Size(96, 29);
@@ -1247,7 +1260,7 @@
             tabPage5.Location = new Point(4, 24);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(3);
-            tabPage5.Size = new Size(1091, 460);
+            tabPage5.Size = new Size(1175, 507);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Bomba 4";
             tabPage5.UseVisualStyleBackColor = true;
@@ -1277,12 +1290,12 @@
             panFbomba4.Controls.Add(label37);
             panFbomba4.Location = new Point(3, 3);
             panFbomba4.Name = "panFbomba4";
-            panFbomba4.Size = new Size(1087, 460);
+            panFbomba4.Size = new Size(1166, 498);
             panFbomba4.TabIndex = 52;
             // 
             // txtCantidadVolB4
             // 
-            txtCantidadVolB4.Location = new Point(516, 258);
+            txtCantidadVolB4.Location = new Point(649, 258);
             txtCantidadVolB4.Margin = new Padding(3, 2, 3, 2);
             txtCantidadVolB4.Name = "txtCantidadVolB4";
             txtCantidadVolB4.Size = new Size(134, 23);
@@ -1292,7 +1305,7 @@
             // 
             label38.AutoSize = true;
             label38.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label38.Location = new Point(248, 263);
+            label38.Location = new Point(381, 263);
             label38.Name = "label38";
             label38.Size = new Size(192, 18);
             label38.TabIndex = 52;
@@ -1302,7 +1315,7 @@
             // 
             btnDetener4.AutoSize = true;
             btnDetener4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetener4.Location = new Point(900, 312);
+            btnDetener4.Location = new Point(1000, 312);
             btnDetener4.Margin = new Padding(3, 2, 3, 2);
             btnDetener4.Name = "btnDetener4";
             btnDetener4.Size = new Size(112, 34);
@@ -1324,7 +1337,7 @@
             // btnDespacharB4
             // 
             btnDespacharB4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDespacharB4.Location = new Point(765, 312);
+            btnDespacharB4.Location = new Point(865, 312);
             btnDespacharB4.Margin = new Padding(3, 2, 3, 2);
             btnDespacharB4.Name = "btnDespacharB4";
             btnDespacharB4.Size = new Size(112, 34);
@@ -1336,7 +1349,7 @@
             // btnGuardarClienteB4
             // 
             btnGuardarClienteB4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGuardarClienteB4.Location = new Point(378, 312);
+            btnGuardarClienteB4.Location = new Point(511, 312);
             btnGuardarClienteB4.Margin = new Padding(3, 2, 3, 2);
             btnGuardarClienteB4.Name = "btnGuardarClienteB4";
             btnGuardarClienteB4.Size = new Size(93, 29);
@@ -1347,7 +1360,7 @@
             // 
             // txtCantidadAbasB4
             // 
-            txtCantidadAbasB4.Location = new Point(518, 219);
+            txtCantidadAbasB4.Location = new Point(651, 219);
             txtCantidadAbasB4.Margin = new Padding(3, 2, 3, 2);
             txtCantidadAbasB4.Name = "txtCantidadAbasB4";
             txtCantidadAbasB4.Size = new Size(134, 23);
@@ -1356,7 +1369,7 @@
             // comboTipoAbasB4
             // 
             comboTipoAbasB4.FormattingEnabled = true;
-            comboTipoAbasB4.Location = new Point(518, 175);
+            comboTipoAbasB4.Location = new Point(651, 175);
             comboTipoAbasB4.Margin = new Padding(3, 2, 3, 2);
             comboTipoAbasB4.Name = "comboTipoAbasB4";
             comboTipoAbasB4.Size = new Size(133, 23);
@@ -1364,7 +1377,7 @@
             // 
             // txtNitB4
             // 
-            txtNitB4.Location = new Point(517, 90);
+            txtNitB4.Location = new Point(650, 90);
             txtNitB4.Margin = new Padding(3, 2, 3, 2);
             txtNitB4.Name = "txtNitB4";
             txtNitB4.Size = new Size(134, 23);
@@ -1374,7 +1387,7 @@
             // 
             label32.AutoSize = true;
             label32.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label32.Location = new Point(248, 219);
+            label32.Location = new Point(381, 219);
             label32.Name = "label32";
             label32.Size = new Size(224, 18);
             label32.TabIndex = 44;
@@ -1384,7 +1397,7 @@
             // 
             label33.AutoSize = true;
             label33.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label33.Location = new Point(248, 177);
+            label33.Location = new Point(381, 177);
             label33.Name = "label33";
             label33.Size = new Size(187, 18);
             label33.TabIndex = 43;
@@ -1394,7 +1407,7 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label34.Location = new Point(248, 133);
+            label34.Location = new Point(381, 133);
             label34.Name = "label34";
             label34.Size = new Size(164, 18);
             label34.TabIndex = 42;
@@ -1404,7 +1417,7 @@
             // 
             label35.AutoSize = true;
             label35.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label35.Location = new Point(248, 95);
+            label35.Location = new Point(381, 95);
             label35.Name = "label35";
             label35.Size = new Size(36, 18);
             label35.TabIndex = 41;
@@ -1414,7 +1427,7 @@
             // 
             label36.AutoSize = true;
             label36.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label36.Location = new Point(248, 45);
+            label36.Location = new Point(381, 45);
             label36.Name = "label36";
             label36.Size = new Size(73, 18);
             label36.TabIndex = 40;
@@ -1423,7 +1436,7 @@
             // comboTipoGasB4
             // 
             comboTipoGasB4.FormattingEnabled = true;
-            comboTipoGasB4.Location = new Point(517, 133);
+            comboTipoGasB4.Location = new Point(650, 133);
             comboTipoGasB4.Margin = new Padding(3, 2, 3, 2);
             comboTipoGasB4.Name = "comboTipoGasB4";
             comboTipoGasB4.Size = new Size(133, 23);
@@ -1431,7 +1444,7 @@
             // 
             // txtNombreB4
             // 
-            txtNombreB4.Location = new Point(516, 45);
+            txtNombreB4.Location = new Point(649, 45);
             txtNombreB4.Margin = new Padding(3, 2, 3, 2);
             txtNombreB4.Name = "txtNombreB4";
             txtNombreB4.Size = new Size(134, 23);
@@ -1445,14 +1458,24 @@
             dataGridViewB4.Margin = new Padding(3, 2, 3, 2);
             dataGridViewB4.Name = "dataGridViewB4";
             dataGridViewB4.RowHeadersWidth = 51;
-            dataGridViewB4.Size = new Size(206, 281);
+            dataGridViewB4.Size = new Size(255, 281);
             dataGridViewB4.TabIndex = 37;
             dataGridViewB4.CellContentClick += dataGridViewB4_CellContentClick;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Nombre";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "NIT";
+            Column4.Name = "Column4";
             // 
             // pictureBox8
             // 
             pictureBox8.Image = Properties.Resources.bomba_4;
-            pictureBox8.Location = new Point(747, 18);
+            pictureBox8.Location = new Point(847, 18);
             pictureBox8.Margin = new Padding(3, 2, 3, 2);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(293, 281);
@@ -1463,7 +1486,7 @@
             // btnSalirB4
             // 
             btnSalirB4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalirB4.Location = new Point(485, 312);
+            btnSalirB4.Location = new Point(618, 312);
             btnSalirB4.Margin = new Padding(3, 2, 3, 2);
             btnSalirB4.Name = "btnSalirB4";
             btnSalirB4.Size = new Size(96, 29);
@@ -1482,32 +1505,12 @@
             label37.TabIndex = 34;
             label37.Text = "Datos del cliente";
             // 
-            // Column1
-            // 
-            Column1.HeaderText = "Nombre";
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "NIT";
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Nombre";
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "NIT";
-            Column4.Name = "Column4";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1105, 497);
+            ClientSize = new Size(1200, 554);
             Controls.Add(TabModelBombas);
             Margin = new Padding(2);
             Name = "Form1";
