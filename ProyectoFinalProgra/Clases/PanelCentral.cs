@@ -41,8 +41,8 @@ namespace ProyectoFinal
             contadorId = 1;
             contadorClienteId = 1;
 
-            // CAMBIA COM7 SI TU ARDUINO MEGA ESTA EN OTRO PUERTO
-            arduino = new Arduino("COM4");
+            
+            arduino = new Arduino("COM15");
 
             for (int i = 1; i <= 4; i++)
                 bombas.Add(new Bomba(i, $"Bomba {i}"));
@@ -56,9 +56,7 @@ namespace ProyectoFinal
         }
 
 
-        // PREPAGO: por ahora monto/cantidad = segundos maximos de activacion.
-        // Si el sensor HW-038 detecta agua antes, Arduino devuelve los segundos reales
-        // y se guardan esos segundos en la base de datos.
+       
         public async Task<string> IniciarPrepago(string nombreCliente, string nit, string tipoGas, int bombaId, decimal monto)
         {
             Bomba bomba = BuscarBomba(bombaId);
@@ -110,8 +108,7 @@ namespace ProyectoFinal
             }
         }
 
-        // TANQUE LLENO: ahora se manda Bx:FULL y Arduino se detiene cuando el HW-038 detecta agua
-        // o cuando llega al limite de seguridad definido en el Arduino.
+        
         public async Task<string> IniciarTanqueLleno(string nombreCliente, string nit, int bombaId, string tipoGas = "")
         {
             Bomba bomba = BuscarBomba(bombaId);
@@ -126,7 +123,6 @@ namespace ProyectoFinal
             {
                 Clientes cliente = BuscarOCrearCliente(nombreCliente, nit);
 
-                // Debe ser mayor que TIEMPO_MAX_TANQUE_LLENO_SEG del Arduino.
                 int timeoutMs = 140000;
                 DespachoResultado resultado = await Task.Run(() => arduino.EnviarYEsperarFin(enviarMensaje, timeoutMs));
 

@@ -42,8 +42,7 @@ namespace ProyectoFinalProgra.Clases
                     {
                         puerto.Open();
 
-                        // El Arduino Mega normalmente se reinicia al abrir el puerto serial.
-                        // Solo esperamos una vez, no en cada despacho.
+                       
                         if (!yaEsperoReinicio)
                         {
                             Thread.Sleep(2000);
@@ -68,11 +67,17 @@ namespace ProyectoFinalProgra.Clases
             {
                 try
                 {
+
+              
                     Conectar();
-                    puerto.DiscardInBuffer();
-                    puerto.DiscardOutBuffer();
+                       
                     puerto.WriteLine(mensaje);
+                    
+                   
                 }
+
+
+
                 catch (UnauthorizedAccessException)
                 {
                     throw new Exception("El puerto " + puerto.PortName + " esta ocupado. Cierra Arduino IDE, Monitor Serial u otra ventana del programa.");
@@ -90,10 +95,13 @@ namespace ProyectoFinalProgra.Clases
             {
                 try
                 {
-                    Conectar();
-                    puerto.DiscardInBuffer();
-                    puerto.DiscardOutBuffer();
-                    puerto.WriteLine(mensaje);
+                   
+                     Conectar();
+                     puerto.DiscardInBuffer();
+                     puerto.DiscardOutBuffer();
+                     puerto.WriteLine(mensaje);
+              
+                    
 
                     DateTime limite = DateTime.Now.AddMilliseconds(timeoutMs);
 
@@ -118,7 +126,7 @@ namespace ProyectoFinalProgra.Clases
                         }
                         catch (TimeoutException)
                         {
-                            // Seguimos esperando hasta llegar al timeout general.
+                            
                         }
                     }
 
@@ -137,8 +145,6 @@ namespace ProyectoFinalProgra.Clases
 
         private DespachoResultado ParsearResultado(string linea)
         {
-            // Formato esperado:
-            // OK:FIN:B1:DESP=4:PARO=SENSOR
             DespachoResultado resultado = new DespachoResultado();
             resultado.LineaOriginal = linea;
             resultado.MotivoParo = "DESCONOCIDO";
@@ -198,7 +204,7 @@ namespace ProyectoFinalProgra.Clases
                 }
                 catch
                 {
-                    // Evita errores al cerrar la aplicacion.
+          
                 }
             }
         }
