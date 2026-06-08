@@ -50,5 +50,20 @@ namespace ProyectoFinalProgra
             FPrecioGas formFPrecioGas = new FPrecioGas();
             formFPrecioGas.Show();
         }
+
+        private void panCentral_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDetener4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBomba1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
