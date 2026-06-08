@@ -56,6 +56,9 @@
             btnBomba1 = new Button();
             tabPage2 = new TabPage();
             panFbomba1 = new Panel();
+            txtCantidadVolB1 = new TextBox();
+            label41 = new Label();
+            btnDetener1 = new Button();
             label10 = new Label();
             btnDespacharB1 = new Button();
             btnGuardarClienteB1 = new Button();
@@ -70,11 +73,16 @@
             comboTipoGasB1 = new ComboBox();
             txtNombreB1 = new TextBox();
             dataGridViewB1 = new DataGridView();
+            NOM = new DataGridViewTextBoxColumn();
+            ni = new DataGridViewTextBoxColumn();
             pictureBox5 = new PictureBox();
             btnSalirB1 = new Button();
             label16 = new Label();
             tabPage3 = new TabPage();
             panFbomba2 = new Panel();
+            txtCantidadVolB2 = new TextBox();
+            label40 = new Label();
+            btnDetener2 = new Button();
             label17 = new Label();
             btnDespacharB2 = new Button();
             btnGuardarClienteB2 = new Button();
@@ -89,11 +97,15 @@
             comboTipoGasB2 = new ComboBox();
             txtNombreB2 = new TextBox();
             dataGridViewB2 = new DataGridView();
+            n = new DataGridViewTextBoxColumn();
+            no = new DataGridViewTextBoxColumn();
             pictureBox6 = new PictureBox();
             btnSalirB2 = new Button();
             label23 = new Label();
             tabPage4 = new TabPage();
             panFbomba3 = new Panel();
+            txtCantidadVolB3 = new TextBox();
+            label39 = new Label();
             btnDetener3 = new Button();
             label24 = new Label();
             btnDespacharB3 = new Button();
@@ -114,6 +126,8 @@
             label30 = new Label();
             tabPage5 = new TabPage();
             panFbomba4 = new Panel();
+            txtCantidadVolB4 = new TextBox();
+            label38 = new Label();
             btnDetener4 = new Button();
             label31 = new Label();
             btnDespacharB4 = new Button();
@@ -132,16 +146,10 @@
             pictureBox8 = new PictureBox();
             btnSalirB4 = new Button();
             label37 = new Label();
-            btnDetener2 = new Button();
-            btnDetener1 = new Button();
-            label38 = new Label();
-            txtCantidadVolB4 = new TextBox();
-            label39 = new Label();
-            label40 = new Label();
-            label41 = new Label();
-            txtCantidadVolB3 = new TextBox();
-            txtCantidadVolB2 = new TextBox();
-            txtCantidadVolB1 = new TextBox();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             TabModelBombas.SuspendLayout();
             tabPage1.SuspendLayout();
             panCentral.SuspendLayout();
@@ -420,6 +428,7 @@
             btnPrecioGas.TabIndex = 5;
             btnPrecioGas.Text = "Precios Gasolina";
             btnPrecioGas.UseVisualStyleBackColor = true;
+            btnPrecioGas.Click += btnPrecioGas_Click_1;
             // 
             // btnEstadistica
             // 
@@ -431,6 +440,7 @@
             btnEstadistica.TabIndex = 4;
             btnEstadistica.Text = "Estadísticas";
             btnEstadistica.UseVisualStyleBackColor = true;
+            btnEstadistica.Click += btnEstadistica_Click_1;
             // 
             // btnBomba4
             // 
@@ -442,6 +452,7 @@
             btnBomba4.TabIndex = 3;
             btnBomba4.Text = "Usar";
             btnBomba4.UseVisualStyleBackColor = true;
+            btnBomba4.Click += btnBomba4_Click_1;
             // 
             // btnBomba3
             // 
@@ -453,6 +464,7 @@
             btnBomba3.TabIndex = 2;
             btnBomba3.Text = "Usar";
             btnBomba3.UseVisualStyleBackColor = true;
+            btnBomba3.Click += btnBomba3_Click_1;
             // 
             // btnBomba2
             // 
@@ -464,6 +476,7 @@
             btnBomba2.TabIndex = 1;
             btnBomba2.Text = "Usar";
             btnBomba2.UseVisualStyleBackColor = true;
+            btnBomba2.Click += btnBomba2_Click_1;
             // 
             // btnBomba1
             // 
@@ -516,6 +529,35 @@
             panFbomba1.Size = new Size(1085, 460);
             panFbomba1.TabIndex = 18;
             // 
+            // txtCantidadVolB1
+            // 
+            txtCantidadVolB1.Location = new Point(507, 271);
+            txtCantidadVolB1.Margin = new Padding(3, 2, 3, 2);
+            txtCantidadVolB1.Name = "txtCantidadVolB1";
+            txtCantidadVolB1.Size = new Size(134, 23);
+            txtCantidadVolB1.TabIndex = 54;
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label41.Location = new Point(236, 271);
+            label41.Name = "label41";
+            label41.Size = new Size(192, 18);
+            label41.TabIndex = 53;
+            label41.Text = "Cantidad por volumnen:";
+            // 
+            // btnDetener1
+            // 
+            btnDetener1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDetener1.Location = new Point(907, 307);
+            btnDetener1.Margin = new Padding(2);
+            btnDetener1.Name = "btnDetener1";
+            btnDetener1.Size = new Size(112, 34);
+            btnDetener1.TabIndex = 17;
+            btnDetener1.Text = "Detener";
+            btnDetener1.UseVisualStyleBackColor = true;
+            // 
             // label10
             // 
             label10.AutoSize = true;
@@ -537,6 +579,7 @@
             btnDespacharB1.TabIndex = 15;
             btnDespacharB1.Text = "Despachar";
             btnDespacharB1.UseVisualStyleBackColor = true;
+            btnDespacharB1.Click += btnDespacharB1_Click;
             // 
             // btnGuardarClienteB1
             // 
@@ -548,6 +591,7 @@
             btnGuardarClienteB1.TabIndex = 14;
             btnGuardarClienteB1.Text = "Guardar";
             btnGuardarClienteB1.UseVisualStyleBackColor = true;
+            btnGuardarClienteB1.Click += btnGuardarClienteB1_Click;
             // 
             // txtCantidadAbasB1
             // 
@@ -651,12 +695,24 @@
             // dataGridViewB1
             // 
             dataGridViewB1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewB1.Columns.AddRange(new DataGridViewColumn[] { NOM, ni });
             dataGridViewB1.Location = new Point(8, 49);
             dataGridViewB1.Margin = new Padding(2);
             dataGridViewB1.Name = "dataGridViewB1";
             dataGridViewB1.RowHeadersWidth = 51;
             dataGridViewB1.Size = new Size(206, 281);
             dataGridViewB1.TabIndex = 3;
+            dataGridViewB1.CellContentClick += dataGridViewB1_CellContentClick;
+            // 
+            // NOM
+            // 
+            NOM.HeaderText = "Nombre";
+            NOM.Name = "NOM";
+            // 
+            // ni
+            // 
+            ni.HeaderText = "NIT";
+            ni.Name = "ni";
             // 
             // pictureBox5
             // 
@@ -679,6 +735,7 @@
             btnSalirB1.TabIndex = 1;
             btnSalirB1.Text = "Salir";
             btnSalirB1.UseVisualStyleBackColor = true;
+            btnSalirB1.Click += btnSalirB1_Click;
             // 
             // label16
             // 
@@ -730,6 +787,35 @@
             panFbomba2.Size = new Size(1087, 460);
             panFbomba2.TabIndex = 35;
             // 
+            // txtCantidadVolB2
+            // 
+            txtCantidadVolB2.Location = new Point(499, 264);
+            txtCantidadVolB2.Margin = new Padding(3, 2, 3, 2);
+            txtCantidadVolB2.Name = "txtCantidadVolB2";
+            txtCantidadVolB2.Size = new Size(134, 23);
+            txtCantidadVolB2.TabIndex = 54;
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label40.Location = new Point(231, 266);
+            label40.Name = "label40";
+            label40.Size = new Size(192, 18);
+            label40.TabIndex = 53;
+            label40.Text = "Cantidad por volumnen:";
+            // 
+            // btnDetener2
+            // 
+            btnDetener2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDetener2.Location = new Point(893, 304);
+            btnDetener2.Margin = new Padding(3, 2, 3, 2);
+            btnDetener2.Name = "btnDetener2";
+            btnDetener2.Size = new Size(112, 34);
+            btnDetener2.TabIndex = 34;
+            btnDetener2.Text = "Detener";
+            btnDetener2.UseVisualStyleBackColor = true;
+            // 
             // label17
             // 
             label17.AutoSize = true;
@@ -750,6 +836,7 @@
             btnDespacharB2.TabIndex = 32;
             btnDespacharB2.Text = "Despachar";
             btnDespacharB2.UseVisualStyleBackColor = true;
+            btnDespacharB2.Click += btnDespacharB2_Click;
             // 
             // btnGuardarClienteB2
             // 
@@ -761,6 +848,7 @@
             btnGuardarClienteB2.TabIndex = 31;
             btnGuardarClienteB2.Text = "Guardar";
             btnGuardarClienteB2.UseVisualStyleBackColor = true;
+            btnGuardarClienteB2.Click += btnGuardarClienteB2_Click;
             // 
             // txtCantidadAbasB2
             // 
@@ -859,12 +947,24 @@
             // dataGridViewB2
             // 
             dataGridViewB2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewB2.Columns.AddRange(new DataGridViewColumn[] { n, no });
             dataGridViewB2.Location = new Point(6, 43);
             dataGridViewB2.Margin = new Padding(3, 2, 3, 2);
             dataGridViewB2.Name = "dataGridViewB2";
             dataGridViewB2.RowHeadersWidth = 51;
             dataGridViewB2.Size = new Size(206, 281);
             dataGridViewB2.TabIndex = 20;
+            dataGridViewB2.CellContentClick += dataGridViewB2_CellContentClick;
+            // 
+            // n
+            // 
+            n.HeaderText = "Nombre";
+            n.Name = "n";
+            // 
+            // no
+            // 
+            no.HeaderText = "NIT";
+            no.Name = "no";
             // 
             // pictureBox6
             // 
@@ -887,6 +987,7 @@
             btnSalirB2.TabIndex = 18;
             btnSalirB2.Text = "Salir";
             btnSalirB2.UseVisualStyleBackColor = true;
+            btnSalirB2.Click += btnSalirB2_Click;
             // 
             // label23
             // 
@@ -937,6 +1038,24 @@
             panFbomba3.Size = new Size(1085, 460);
             panFbomba3.TabIndex = 52;
             // 
+            // txtCantidadVolB3
+            // 
+            txtCantidadVolB3.Location = new Point(516, 260);
+            txtCantidadVolB3.Margin = new Padding(3, 2, 3, 2);
+            txtCantidadVolB3.Name = "txtCantidadVolB3";
+            txtCantidadVolB3.Size = new Size(134, 23);
+            txtCantidadVolB3.TabIndex = 54;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label39.Location = new Point(248, 260);
+            label39.Name = "label39";
+            label39.Size = new Size(192, 18);
+            label39.TabIndex = 53;
+            label39.Text = "Cantidad por volumnen:";
+            // 
             // btnDetener3
             // 
             btnDetener3.AutoEllipsis = true;
@@ -969,6 +1088,7 @@
             btnDespacharB3.TabIndex = 49;
             btnDespacharB3.Text = "Despachar";
             btnDespacharB3.UseVisualStyleBackColor = true;
+            btnDespacharB3.Click += btnDespacharB3_Click;
             // 
             // btnGuardarClienteB3
             // 
@@ -980,6 +1100,7 @@
             btnGuardarClienteB3.TabIndex = 48;
             btnGuardarClienteB3.Text = "Guardar";
             btnGuardarClienteB3.UseVisualStyleBackColor = true;
+            btnGuardarClienteB3.Click += btnGuardarClienteB3_Click;
             // 
             // txtCantidadAbasB3
             // 
@@ -1078,12 +1199,14 @@
             // dataGridViewB3
             // 
             dataGridViewB3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewB3.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridViewB3.Location = new Point(13, 47);
             dataGridViewB3.Margin = new Padding(3, 2, 3, 2);
             dataGridViewB3.Name = "dataGridViewB3";
             dataGridViewB3.RowHeadersWidth = 51;
             dataGridViewB3.Size = new Size(206, 281);
             dataGridViewB3.TabIndex = 37;
+            dataGridViewB3.CellContentClick += dataGridViewB3_CellContentClick;
             // 
             // pictureBox7
             // 
@@ -1106,6 +1229,7 @@
             btnSalirB3.TabIndex = 35;
             btnSalirB3.Text = "Salir";
             btnSalirB3.UseVisualStyleBackColor = true;
+            btnSalirB3.Click += btnSalirB3_Click;
             // 
             // label30
             // 
@@ -1156,6 +1280,24 @@
             panFbomba4.Size = new Size(1087, 460);
             panFbomba4.TabIndex = 52;
             // 
+            // txtCantidadVolB4
+            // 
+            txtCantidadVolB4.Location = new Point(516, 258);
+            txtCantidadVolB4.Margin = new Padding(3, 2, 3, 2);
+            txtCantidadVolB4.Name = "txtCantidadVolB4";
+            txtCantidadVolB4.Size = new Size(134, 23);
+            txtCantidadVolB4.TabIndex = 53;
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label38.Location = new Point(248, 263);
+            label38.Name = "label38";
+            label38.Size = new Size(192, 18);
+            label38.TabIndex = 52;
+            label38.Text = "Cantidad por volumnen:";
+            // 
             // btnDetener4
             // 
             btnDetener4.AutoSize = true;
@@ -1189,6 +1331,7 @@
             btnDespacharB4.TabIndex = 49;
             btnDespacharB4.Text = "Despachar";
             btnDespacharB4.UseVisualStyleBackColor = true;
+            btnDespacharB4.Click += btnDespacharB4_Click;
             // 
             // btnGuardarClienteB4
             // 
@@ -1200,6 +1343,7 @@
             btnGuardarClienteB4.TabIndex = 48;
             btnGuardarClienteB4.Text = "Guardar";
             btnGuardarClienteB4.UseVisualStyleBackColor = true;
+            btnGuardarClienteB4.Click += btnGuardarClienteB4_Click;
             // 
             // txtCantidadAbasB4
             // 
@@ -1296,12 +1440,14 @@
             // dataGridViewB4
             // 
             dataGridViewB4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewB4.Columns.AddRange(new DataGridViewColumn[] { Column3, Column4 });
             dataGridViewB4.Location = new Point(15, 45);
             dataGridViewB4.Margin = new Padding(3, 2, 3, 2);
             dataGridViewB4.Name = "dataGridViewB4";
             dataGridViewB4.RowHeadersWidth = 51;
             dataGridViewB4.Size = new Size(206, 281);
             dataGridViewB4.TabIndex = 37;
+            dataGridViewB4.CellContentClick += dataGridViewB4_CellContentClick;
             // 
             // pictureBox8
             // 
@@ -1324,6 +1470,7 @@
             btnSalirB4.TabIndex = 35;
             btnSalirB4.Text = "Salir";
             btnSalirB4.UseVisualStyleBackColor = true;
+            btnSalirB4.Click += btnSalirB4_Click;
             // 
             // label37
             // 
@@ -1335,106 +1482,32 @@
             label37.TabIndex = 34;
             label37.Text = "Datos del cliente";
             // 
-            // btnDetener2
+            // Column1
             // 
-            btnDetener2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetener2.Location = new Point(893, 304);
-            btnDetener2.Margin = new Padding(3, 2, 3, 2);
-            btnDetener2.Name = "btnDetener2";
-            btnDetener2.Size = new Size(112, 34);
-            btnDetener2.TabIndex = 34;
-            btnDetener2.Text = "Detener";
-            btnDetener2.UseVisualStyleBackColor = true;
+            Column1.HeaderText = "Nombre";
+            Column1.Name = "Column1";
             // 
-            // btnDetener1
+            // Column2
             // 
-            btnDetener1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDetener1.Location = new Point(907, 307);
-            btnDetener1.Margin = new Padding(2);
-            btnDetener1.Name = "btnDetener1";
-            btnDetener1.Size = new Size(112, 34);
-            btnDetener1.TabIndex = 17;
-            btnDetener1.Text = "Detener";
-            btnDetener1.UseVisualStyleBackColor = true;
+            Column2.HeaderText = "NIT";
+            Column2.Name = "Column2";
             // 
-            // label38
+            // Column3
             // 
-            label38.AutoSize = true;
-            label38.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label38.Location = new Point(248, 263);
-            label38.Name = "label38";
-            label38.Size = new Size(192, 18);
-            label38.TabIndex = 52;
-            label38.Text = "Cantidad por volumnen:";
+            Column3.HeaderText = "Nombre";
+            Column3.Name = "Column3";
             // 
-            // txtCantidadVolB4
+            // Column4
             // 
-            txtCantidadVolB4.Location = new Point(516, 258);
-            txtCantidadVolB4.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB4.Name = "txtCantidadVolB4";
-            txtCantidadVolB4.Size = new Size(134, 23);
-            txtCantidadVolB4.TabIndex = 53;
-            // 
-            // label39
-            // 
-            label39.AutoSize = true;
-            label39.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label39.Location = new Point(248, 260);
-            label39.Name = "label39";
-            label39.Size = new Size(192, 18);
-            label39.TabIndex = 53;
-            label39.Text = "Cantidad por volumnen:";
-            // 
-            // label40
-            // 
-            label40.AutoSize = true;
-            label40.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label40.Location = new Point(231, 266);
-            label40.Name = "label40";
-            label40.Size = new Size(192, 18);
-            label40.TabIndex = 53;
-            label40.Text = "Cantidad por volumnen:";
-            // 
-            // label41
-            // 
-            label41.AutoSize = true;
-            label41.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label41.Location = new Point(236, 271);
-            label41.Name = "label41";
-            label41.Size = new Size(192, 18);
-            label41.TabIndex = 53;
-            label41.Text = "Cantidad por volumnen:";
-            // 
-            // txtCantidadVolB3
-            // 
-            txtCantidadVolB3.Location = new Point(516, 260);
-            txtCantidadVolB3.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB3.Name = "txtCantidadVolB3";
-            txtCantidadVolB3.Size = new Size(134, 23);
-            txtCantidadVolB3.TabIndex = 54;
-            // 
-            // txtCantidadVolB2
-            // 
-            txtCantidadVolB2.Location = new Point(499, 264);
-            txtCantidadVolB2.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB2.Name = "txtCantidadVolB2";
-            txtCantidadVolB2.Size = new Size(134, 23);
-            txtCantidadVolB2.TabIndex = 54;
-            // 
-            // txtCantidadVolB1
-            // 
-            txtCantidadVolB1.Location = new Point(507, 271);
-            txtCantidadVolB1.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB1.Name = "txtCantidadVolB1";
-            txtCantidadVolB1.Size = new Size(134, 23);
-            txtCantidadVolB1.TabIndex = 54;
+            Column4.HeaderText = "NIT";
+            Column4.Name = "Column4";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1162, 526);
+            ClientSize = new Size(1105, 497);
             Controls.Add(TabModelBombas);
             Margin = new Padding(2);
             Name = "Form1";
@@ -1586,5 +1659,13 @@
         private TextBox txtCantidadVolB3;
         private Label label39;
         private TextBox txtCantidadVolB4;
+        private DataGridViewTextBoxColumn NOM;
+        private DataGridViewTextBoxColumn ni;
+        private DataGridViewTextBoxColumn n;
+        private DataGridViewTextBoxColumn no;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }
