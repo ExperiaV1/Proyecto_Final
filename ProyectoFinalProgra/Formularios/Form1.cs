@@ -68,8 +68,6 @@ namespace ProyectoFinalProgra
 
         }
 
-
-
         // ---- CONFIGURACION DE EVENTO PARA LOS BOTONER USAR PARA IR A LAS BOMBAS ----
         private void btnBomba1_Click_1(object sender, EventArgs e)
         {
@@ -252,7 +250,14 @@ namespace ProyectoFinalProgra
 
         private void btnDetener1_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                panelCentral.DetenerBomba(1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al detener: " + ex.Message);
+            }
         }
 
         // ====== LOGICA BOMBA 2 ======
@@ -377,7 +382,14 @@ namespace ProyectoFinalProgra
         }
         private void btnDetener2_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                panelCentral.DetenerBomba(2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al detener: " + ex.Message);
+            }
         }
 
         // ====== LOGICA BOMBA 3 =======
@@ -501,7 +513,14 @@ namespace ProyectoFinalProgra
         }
         private void btnDetener3_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                panelCentral.DetenerBomba(3);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al detener: " + ex.Message);
+            }
         }
 
         // ====== LOGICA BOMBA 4 ======
@@ -625,7 +644,14 @@ namespace ProyectoFinalProgra
         }
         private void btnDetener4_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                panelCentral.DetenerBomba(4);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al detener: " + ex.Message);
+            }
         }
     }
 }

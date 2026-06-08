@@ -157,6 +157,24 @@ namespace ProyectoFinal
             }
         }
 
+        public void DetenerBomba (int bombaId)
+        {
+            Bomba bomba = BuscarBomba(bombaId);
+            if(bomba != null)
+            {
+                string comandoParo = $"B{bombaId}: PARO";
+                try
+                {
+                    arduino.Enviar(comandoParo);
+                }
+                catch (Exception ex) 
+                {
+                    throw new Exception($"Error al intentar enviar comando de paro a la bomba {bombaId}: {ex.Message}");
+                }
+            }
+
+        }
+
         public void LiberarBomba(int bombaId)
         {
             Bomba bomba = BuscarBomba(bombaId);
