@@ -31,6 +31,18 @@
             TabModelBombas = new TabControl();
             tabPage1 = new TabPage();
             panCentral = new Panel();
+            lbDiesel4 = new Label();
+            lbRegular4 = new Label();
+            lbSuper4 = new Label();
+            lbDiesel3 = new Label();
+            lbRegular3 = new Label();
+            lbSuper3 = new Label();
+            lbDiesel2 = new Label();
+            lbRegular2 = new Label();
+            lbSuper2 = new Label();
+            lbDiesel1 = new Label();
+            lbRegular1 = new Label();
+            lbSuper1 = new Label();
             lblBomba4 = new Label();
             lblBomba3 = new Label();
             lblBomba2 = new Label();
@@ -56,8 +68,6 @@
             btnBomba1 = new Button();
             tabPage2 = new TabPage();
             panFbomba1 = new Panel();
-            txtCantidadVolB1 = new TextBox();
-            label41 = new Label();
             btnDetener1 = new Button();
             label10 = new Label();
             btnDespacharB1 = new Button();
@@ -80,8 +90,6 @@
             label16 = new Label();
             tabPage3 = new TabPage();
             panFbomba2 = new Panel();
-            txtCantidadVolB2 = new TextBox();
-            label40 = new Label();
             btnDetener2 = new Button();
             label17 = new Label();
             btnDespacharB2 = new Button();
@@ -104,8 +112,6 @@
             label23 = new Label();
             tabPage4 = new TabPage();
             panFbomba3 = new Panel();
-            txtCantidadVolB3 = new TextBox();
-            label39 = new Label();
             btnDetener3 = new Button();
             label24 = new Label();
             btnDespacharB3 = new Button();
@@ -128,8 +134,6 @@
             label30 = new Label();
             tabPage5 = new TabPage();
             panFbomba4 = new Panel();
-            txtCantidadVolB4 = new TextBox();
-            label38 = new Label();
             btnDetener4 = new Button();
             label31 = new Label();
             btnDespacharB4 = new Button();
@@ -202,6 +206,18 @@
             // panCentral
             // 
             panCentral.BackColor = Color.LightGreen;
+            panCentral.Controls.Add(lbDiesel4);
+            panCentral.Controls.Add(lbRegular4);
+            panCentral.Controls.Add(lbSuper4);
+            panCentral.Controls.Add(lbDiesel3);
+            panCentral.Controls.Add(lbRegular3);
+            panCentral.Controls.Add(lbSuper3);
+            panCentral.Controls.Add(lbDiesel2);
+            panCentral.Controls.Add(lbRegular2);
+            panCentral.Controls.Add(lbSuper2);
+            panCentral.Controls.Add(lbDiesel1);
+            panCentral.Controls.Add(lbRegular1);
+            panCentral.Controls.Add(lbSuper1);
             panCentral.Controls.Add(lblBomba4);
             panCentral.Controls.Add(lblBomba3);
             panCentral.Controls.Add(lblBomba2);
@@ -227,20 +243,152 @@
             panCentral.Controls.Add(btnBomba1);
             panCentral.Location = new Point(6, 3);
             panCentral.Name = "panCentral";
-            panCentral.Size = new Size(1085, 460);
+            panCentral.Size = new Size(1166, 498);
             panCentral.TabIndex = 25;
             panCentral.Paint += panCentral_Paint;
+            // 
+            // lbDiesel4
+            // 
+            lbDiesel4.AutoSize = true;
+            lbDiesel4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDiesel4.Location = new Point(976, 349);
+            lbDiesel4.Margin = new Padding(2, 0, 2, 0);
+            lbDiesel4.Name = "lbDiesel4";
+            lbDiesel4.Size = new Size(13, 18);
+            lbDiesel4.TabIndex = 47;
+            lbDiesel4.Text = "-";
+            // 
+            // lbRegular4
+            // 
+            lbRegular4.AutoSize = true;
+            lbRegular4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbRegular4.Location = new Point(976, 331);
+            lbRegular4.Margin = new Padding(2, 0, 2, 0);
+            lbRegular4.Name = "lbRegular4";
+            lbRegular4.Size = new Size(13, 18);
+            lbRegular4.TabIndex = 46;
+            lbRegular4.Text = "-";
+            // 
+            // lbSuper4
+            // 
+            lbSuper4.AutoSize = true;
+            lbSuper4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSuper4.Location = new Point(976, 313);
+            lbSuper4.Margin = new Padding(2, 0, 2, 0);
+            lbSuper4.Name = "lbSuper4";
+            lbSuper4.Size = new Size(13, 18);
+            lbSuper4.TabIndex = 45;
+            lbSuper4.Text = "-";
+            // 
+            // lbDiesel3
+            // 
+            lbDiesel3.AutoSize = true;
+            lbDiesel3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDiesel3.Location = new Point(254, 349);
+            lbDiesel3.Margin = new Padding(2, 0, 2, 0);
+            lbDiesel3.Name = "lbDiesel3";
+            lbDiesel3.Size = new Size(13, 18);
+            lbDiesel3.TabIndex = 41;
+            lbDiesel3.Text = "-";
+            // 
+            // lbRegular3
+            // 
+            lbRegular3.AutoSize = true;
+            lbRegular3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbRegular3.Location = new Point(254, 331);
+            lbRegular3.Margin = new Padding(2, 0, 2, 0);
+            lbRegular3.Name = "lbRegular3";
+            lbRegular3.Size = new Size(13, 18);
+            lbRegular3.TabIndex = 40;
+            lbRegular3.Text = "-";
+            // 
+            // lbSuper3
+            // 
+            lbSuper3.AutoSize = true;
+            lbSuper3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSuper3.Location = new Point(254, 313);
+            lbSuper3.Margin = new Padding(2, 0, 2, 0);
+            lbSuper3.Name = "lbSuper3";
+            lbSuper3.Size = new Size(13, 18);
+            lbSuper3.TabIndex = 39;
+            lbSuper3.Text = "-";
+            // 
+            // lbDiesel2
+            // 
+            lbDiesel2.AutoSize = true;
+            lbDiesel2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDiesel2.Location = new Point(976, 131);
+            lbDiesel2.Margin = new Padding(2, 0, 2, 0);
+            lbDiesel2.Name = "lbDiesel2";
+            lbDiesel2.Size = new Size(13, 18);
+            lbDiesel2.TabIndex = 35;
+            lbDiesel2.Text = "-";
+            // 
+            // lbRegular2
+            // 
+            lbRegular2.AutoSize = true;
+            lbRegular2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbRegular2.Location = new Point(976, 113);
+            lbRegular2.Margin = new Padding(2, 0, 2, 0);
+            lbRegular2.Name = "lbRegular2";
+            lbRegular2.Size = new Size(13, 18);
+            lbRegular2.TabIndex = 34;
+            lbRegular2.Text = "-";
+            // 
+            // lbSuper2
+            // 
+            lbSuper2.AutoSize = true;
+            lbSuper2.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSuper2.Location = new Point(976, 95);
+            lbSuper2.Margin = new Padding(2, 0, 2, 0);
+            lbSuper2.Name = "lbSuper2";
+            lbSuper2.Size = new Size(13, 18);
+            lbSuper2.TabIndex = 33;
+            lbSuper2.Text = "-";
+            // 
+            // lbDiesel1
+            // 
+            lbDiesel1.AutoSize = true;
+            lbDiesel1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbDiesel1.Location = new Point(254, 131);
+            lbDiesel1.Margin = new Padding(2, 0, 2, 0);
+            lbDiesel1.Name = "lbDiesel1";
+            lbDiesel1.Size = new Size(13, 18);
+            lbDiesel1.TabIndex = 29;
+            lbDiesel1.Text = "-";
+            // 
+            // lbRegular1
+            // 
+            lbRegular1.AutoSize = true;
+            lbRegular1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbRegular1.Location = new Point(254, 113);
+            lbRegular1.Margin = new Padding(2, 0, 2, 0);
+            lbRegular1.Name = "lbRegular1";
+            lbRegular1.Size = new Size(13, 18);
+            lbRegular1.TabIndex = 28;
+            lbRegular1.Text = "-";
+            // 
+            // lbSuper1
+            // 
+            lbSuper1.AutoSize = true;
+            lbSuper1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSuper1.Location = new Point(254, 95);
+            lbSuper1.Margin = new Padding(2, 0, 2, 0);
+            lbSuper1.Name = "lbSuper1";
+            lbSuper1.Size = new Size(13, 18);
+            lbSuper1.TabIndex = 27;
+            lbSuper1.Text = "-";
             // 
             // lblBomba4
             // 
             lblBomba4.AutoSize = true;
             lblBomba4.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBomba4.Location = new Point(974, 295);
+            lblBomba4.Location = new Point(976, 295);
             lblBomba4.Margin = new Padding(2, 0, 2, 0);
             lblBomba4.Name = "lblBomba4";
-            lblBomba4.Size = new Size(65, 18);
+            lblBomba4.Size = new Size(63, 18);
             lblBomba4.TabIndex = 23;
-            lblBomba4.Text = "label13";
+            lblBomba4.Text = "Precios";
             // 
             // lblBomba3
             // 
@@ -249,9 +397,9 @@
             lblBomba3.Location = new Point(254, 295);
             lblBomba3.Margin = new Padding(2, 0, 2, 0);
             lblBomba3.Name = "lblBomba3";
-            lblBomba3.Size = new Size(65, 18);
+            lblBomba3.Size = new Size(63, 18);
             lblBomba3.TabIndex = 22;
-            lblBomba3.Text = "label12";
+            lblBomba3.Text = "Precios";
             // 
             // lblBomba2
             // 
@@ -260,9 +408,9 @@
             lblBomba2.Location = new Point(974, 77);
             lblBomba2.Margin = new Padding(2, 0, 2, 0);
             lblBomba2.Name = "lblBomba2";
-            lblBomba2.Size = new Size(65, 18);
+            lblBomba2.Size = new Size(63, 18);
             lblBomba2.TabIndex = 21;
-            lblBomba2.Text = "label11";
+            lblBomba2.Text = "Precios";
             // 
             // lblBomba1
             // 
@@ -271,9 +419,9 @@
             lblBomba1.Location = new Point(254, 77);
             lblBomba1.Margin = new Padding(2, 0, 2, 0);
             lblBomba1.Name = "lblBomba1";
-            lblBomba1.Size = new Size(65, 18);
+            lblBomba1.Size = new Size(63, 18);
             lblBomba1.TabIndex = 20;
-            lblBomba1.Text = "label10";
+            lblBomba1.Text = "Precios";
             // 
             // label9
             // 
@@ -504,8 +652,6 @@
             // panFbomba1
             // 
             panFbomba1.BackColor = Color.LightGreen;
-            panFbomba1.Controls.Add(txtCantidadVolB1);
-            panFbomba1.Controls.Add(label41);
             panFbomba1.Controls.Add(btnDetener1);
             panFbomba1.Controls.Add(label10);
             panFbomba1.Controls.Add(btnDespacharB1);
@@ -528,24 +674,6 @@
             panFbomba1.Name = "panFbomba1";
             panFbomba1.Size = new Size(1163, 498);
             panFbomba1.TabIndex = 18;
-            // 
-            // txtCantidadVolB1
-            // 
-            txtCantidadVolB1.Location = new Point(664, 285);
-            txtCantidadVolB1.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB1.Name = "txtCantidadVolB1";
-            txtCantidadVolB1.Size = new Size(134, 23);
-            txtCantidadVolB1.TabIndex = 54;
-            // 
-            // label41
-            // 
-            label41.AutoSize = true;
-            label41.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label41.Location = new Point(393, 285);
-            label41.Name = "label41";
-            label41.Size = new Size(192, 18);
-            label41.TabIndex = 53;
-            label41.Text = "Cantidad por volumnen:";
             // 
             // btnDetener1
             // 
@@ -763,8 +891,6 @@
             // panFbomba2
             // 
             panFbomba2.BackColor = Color.LightGreen;
-            panFbomba2.Controls.Add(txtCantidadVolB2);
-            panFbomba2.Controls.Add(label40);
             panFbomba2.Controls.Add(btnDetener2);
             panFbomba2.Controls.Add(label17);
             panFbomba2.Controls.Add(btnDespacharB2);
@@ -787,24 +913,6 @@
             panFbomba2.Name = "panFbomba2";
             panFbomba2.Size = new Size(1166, 498);
             panFbomba2.TabIndex = 35;
-            // 
-            // txtCantidadVolB2
-            // 
-            txtCantidadVolB2.Location = new Point(654, 264);
-            txtCantidadVolB2.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB2.Name = "txtCantidadVolB2";
-            txtCantidadVolB2.Size = new Size(134, 23);
-            txtCantidadVolB2.TabIndex = 54;
-            // 
-            // label40
-            // 
-            label40.AutoSize = true;
-            label40.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label40.Location = new Point(386, 266);
-            label40.Name = "label40";
-            label40.Size = new Size(192, 18);
-            label40.TabIndex = 53;
-            label40.Text = "Cantidad por volumnen:";
             // 
             // btnDetener2
             // 
@@ -1015,8 +1123,6 @@
             // panFbomba3
             // 
             panFbomba3.BackColor = Color.LightGreen;
-            panFbomba3.Controls.Add(txtCantidadVolB3);
-            panFbomba3.Controls.Add(label39);
             panFbomba3.Controls.Add(btnDetener3);
             panFbomba3.Controls.Add(label24);
             panFbomba3.Controls.Add(btnDespacharB3);
@@ -1039,24 +1145,6 @@
             panFbomba3.Name = "panFbomba3";
             panFbomba3.Size = new Size(1172, 504);
             panFbomba3.TabIndex = 52;
-            // 
-            // txtCantidadVolB3
-            // 
-            txtCantidadVolB3.Location = new Point(663, 260);
-            txtCantidadVolB3.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB3.Name = "txtCantidadVolB3";
-            txtCantidadVolB3.Size = new Size(134, 23);
-            txtCantidadVolB3.TabIndex = 54;
-            // 
-            // label39
-            // 
-            label39.AutoSize = true;
-            label39.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label39.Location = new Point(395, 260);
-            label39.Name = "label39";
-            label39.Size = new Size(192, 18);
-            label39.TabIndex = 53;
-            label39.Text = "Cantidad por volumnen:";
             // 
             // btnDetener3
             // 
@@ -1268,8 +1356,6 @@
             // panFbomba4
             // 
             panFbomba4.BackColor = Color.LightGreen;
-            panFbomba4.Controls.Add(txtCantidadVolB4);
-            panFbomba4.Controls.Add(label38);
             panFbomba4.Controls.Add(btnDetener4);
             panFbomba4.Controls.Add(label31);
             panFbomba4.Controls.Add(btnDespacharB4);
@@ -1292,24 +1378,6 @@
             panFbomba4.Name = "panFbomba4";
             panFbomba4.Size = new Size(1166, 498);
             panFbomba4.TabIndex = 52;
-            // 
-            // txtCantidadVolB4
-            // 
-            txtCantidadVolB4.Location = new Point(649, 258);
-            txtCantidadVolB4.Margin = new Padding(3, 2, 3, 2);
-            txtCantidadVolB4.Name = "txtCantidadVolB4";
-            txtCantidadVolB4.Size = new Size(134, 23);
-            txtCantidadVolB4.TabIndex = 53;
-            // 
-            // label38
-            // 
-            label38.AutoSize = true;
-            label38.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label38.Location = new Point(381, 263);
-            label38.Name = "label38";
-            label38.Size = new Size(192, 18);
-            label38.TabIndex = 52;
-            label38.Text = "Cantidad por volumnen:";
             // 
             // btnDetener4
             // 
@@ -1654,14 +1722,6 @@
         private Button btnDetener4;
         private Button btnDetener1;
         private Button btnDetener2;
-        private Label label38;
-        private TextBox txtCantidadVolB1;
-        private Label label41;
-        private TextBox txtCantidadVolB2;
-        private Label label40;
-        private TextBox txtCantidadVolB3;
-        private Label label39;
-        private TextBox txtCantidadVolB4;
         private DataGridViewTextBoxColumn NOM;
         private DataGridViewTextBoxColumn ni;
         private DataGridViewTextBoxColumn n;
@@ -1670,5 +1730,17 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private Label lbDiesel1;
+        private Label lbRegular1;
+        private Label lbSuper1;
+        private Label lbDiesel4;
+        private Label lbRegular4;
+        private Label lbSuper4;
+        private Label lbDiesel3;
+        private Label lbRegular3;
+        private Label lbSuper3;
+        private Label lbDiesel2;
+        private Label lbRegular2;
+        private Label lbSuper2;
     }
 }

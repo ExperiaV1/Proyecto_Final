@@ -98,8 +98,36 @@ namespace ProyectoFinalProgra
 
         private void btnPrecioGas_Click_1(object sender, EventArgs e)
         {
-            FPrecioGas formFPrecioGas = new FPrecioGas();
+            FPrecioGas formFPrecioGas = new FPrecioGas(this);
             formFPrecioGas.ShowDialog();
+        }
+        // --- NUEVO METODO PÚBLICO PARA ACTUALIZAR LABELS DE PRECIOS ---
+        public void ActualizarLabelsPrecios(string super, string regular, string diesel)
+        {
+            // Actualiza la Bomba 1
+            lbSuper1.Text = "Super: Q" + super;
+            lbRegular1.Text = "Regular: Q" + regular;
+            lbDiesel1.Text = "Diesel: Q" + diesel;
+
+            // Actualiza la Bomba 2
+            lbSuper2.Text = "Super: Q" + super;
+            lbRegular2.Text = "Regular: Q" + regular;
+            lbDiesel2.Text = "Diesel: Q" + diesel;
+
+            // Actualiza la Bomba 3
+            lbSuper3.Text = "Super: Q" + super;
+            lbRegular3.Text = "Regular: Q" + regular;
+            lbDiesel3.Text = "Diesel: Q" + diesel;
+
+            // Actualiza la Bomba 4
+            lbSuper4.Text = "Super: Q" + super;
+            lbRegular4.Text = "Regular: Q" + regular;
+            lbDiesel4.Text = "Diesel: Q" + diesel;
+
+            if (decimal.TryParse(super, out decimal precioConvertido))
+            {
+                panelCentral.ActualizarPrecio(precioConvertido);
+            }
         }
 
         // ---- CONFIGURACION DE BOTONES DE SALIDA 1 AL 4 ----

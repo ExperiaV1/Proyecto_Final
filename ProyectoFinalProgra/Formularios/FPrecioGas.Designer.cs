@@ -49,28 +49,32 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Gill Sans Ultra Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(498, 38);
+            label1.Location = new Point(436, 28);
             label1.Name = "label1";
-            label1.Size = new Size(368, 29);
+            label1.Size = new Size(294, 23);
             label1.TabIndex = 0;
             label1.Text = "Tarifas de gasolina por galón";
             // 
             // btnGuardarGas
             // 
+            btnGuardarGas.AutoSize = true;
             btnGuardarGas.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGuardarGas.Location = new Point(523, 451);
+            btnGuardarGas.Location = new Point(458, 338);
+            btnGuardarGas.Margin = new Padding(3, 2, 3, 2);
             btnGuardarGas.Name = "btnGuardarGas";
-            btnGuardarGas.Size = new Size(127, 58);
+            btnGuardarGas.Size = new Size(141, 44);
             btnGuardarGas.TabIndex = 1;
             btnGuardarGas.Text = "Guardar Precios";
             btnGuardarGas.UseVisualStyleBackColor = true;
+            btnGuardarGas.Click += btnGuardarGas_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.super;
-            pictureBox1.Location = new Point(303, 125);
+            pictureBox1.Location = new Point(265, 94);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(169, 179);
+            pictureBox1.Size = new Size(148, 134);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -78,9 +82,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Regular;
-            pictureBox2.Location = new Point(588, 125);
+            pictureBox2.Location = new Point(514, 94);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(169, 179);
+            pictureBox2.Size = new Size(148, 134);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
@@ -88,19 +93,22 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Diesel;
-            pictureBox3.Location = new Point(840, 125);
+            pictureBox3.Location = new Point(735, 94);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(169, 179);
+            pictureBox3.Size = new Size(148, 134);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;
             // 
             // btnSalirPrecioGas
             // 
+            btnSalirPrecioGas.AutoSize = true;
             btnSalirPrecioGas.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalirPrecioGas.Location = new Point(712, 451);
+            btnSalirPrecioGas.Location = new Point(623, 338);
+            btnSalirPrecioGas.Margin = new Padding(3, 2, 3, 2);
             btnSalirPrecioGas.Name = "btnSalirPrecioGas";
-            btnSalirPrecioGas.Size = new Size(116, 58);
+            btnSalirPrecioGas.Size = new Size(102, 44);
             btnSalirPrecioGas.TabIndex = 5;
             btnSalirPrecioGas.Text = "Salir";
             btnSalirPrecioGas.UseVisualStyleBackColor = true;
@@ -110,59 +118,62 @@
             // 
             lblSuper.AutoSize = true;
             lblSuper.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSuper.Location = new Point(369, 327);
+            lblSuper.Location = new Point(323, 245);
             lblSuper.Name = "lblSuper";
-            lblSuper.Size = new Size(67, 20);
+            lblSuper.Size = new Size(53, 18);
             lblSuper.TabIndex = 6;
-            lblSuper.Text = "label2";
+            lblSuper.Text = "Super";
             // 
             // lblRegular
             // 
             lblRegular.AutoSize = true;
             lblRegular.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRegular.Location = new Point(650, 327);
+            lblRegular.Location = new Point(569, 245);
             lblRegular.Name = "lblRegular";
-            lblRegular.Size = new Size(67, 20);
+            lblRegular.Size = new Size(68, 18);
             lblRegular.TabIndex = 7;
-            lblRegular.Text = "label3";
+            lblRegular.Text = "Regular";
             // 
             // lblDiesel
             // 
             lblDiesel.AutoSize = true;
             lblDiesel.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDiesel.Location = new Point(911, 327);
+            lblDiesel.Location = new Point(797, 245);
             lblDiesel.Name = "lblDiesel";
-            lblDiesel.Size = new Size(67, 20);
+            lblDiesel.Size = new Size(52, 18);
             lblDiesel.TabIndex = 8;
-            lblDiesel.Text = "label4";
+            lblDiesel.Text = "Diesel";
             // 
             // txtSuper
             // 
-            txtSuper.Location = new Point(329, 366);
+            txtSuper.Location = new Point(288, 274);
+            txtSuper.Margin = new Padding(3, 2, 3, 2);
             txtSuper.Name = "txtSuper";
-            txtSuper.Size = new Size(125, 27);
+            txtSuper.Size = new Size(110, 23);
             txtSuper.TabIndex = 9;
             // 
             // txtRegular
             // 
-            txtRegular.Location = new Point(613, 366);
+            txtRegular.Location = new Point(536, 274);
+            txtRegular.Margin = new Padding(3, 2, 3, 2);
             txtRegular.Name = "txtRegular";
-            txtRegular.Size = new Size(125, 27);
+            txtRegular.Size = new Size(110, 23);
             txtRegular.TabIndex = 10;
             // 
             // txtDiesel
             // 
-            txtDiesel.Location = new Point(872, 366);
+            txtDiesel.Location = new Point(763, 274);
+            txtDiesel.Margin = new Padding(3, 2, 3, 2);
             txtDiesel.Name = "txtDiesel";
-            txtDiesel.Size = new Size(125, 27);
+            txtDiesel.Size = new Size(110, 23);
             txtDiesel.TabIndex = 11;
             // 
             // FPrecioGas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1368, 556);
+            ClientSize = new Size(1197, 417);
             Controls.Add(txtDiesel);
             Controls.Add(txtRegular);
             Controls.Add(txtSuper);
@@ -175,6 +186,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(btnGuardarGas);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FPrecioGas";
             Text = "FPrecioGas";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
